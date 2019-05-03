@@ -17,4 +17,4 @@
 - [DATABASE](https://github.com/Jinseop95/Capstone_Design/tree/master/database)
 
 ## 회의록
-  -[2019.03.12] 
+  - [2019.03.12](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/1.md)
