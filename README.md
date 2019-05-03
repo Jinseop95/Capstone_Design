@@ -14,4 +14,4 @@
  - 동아리 회원 관리 및 다양한 정보 서비스 제공 받을 수 있음.
 
 ## 진행 상황
-- [DATABASE]
+- [DATABASE](https://github.com/Jinseop95/Capstone_Design/tree/master/database)
