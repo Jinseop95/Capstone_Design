@@ -24,3 +24,5 @@
   - [2019.04.07](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/5.md)
   - [2019.04.14](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/6.md)
   - [2019.04.29](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/7.md)
+  - [2019.05.01](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/8.md)
+  - [2019.05.02](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/9.md)
