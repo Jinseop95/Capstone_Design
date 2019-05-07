@@ -156,7 +156,7 @@ text-decoration:none;
                      </a>
                   </li>
                   <li class="ico2">
-                     <a href="login.jsp">
+                     <a onclick='javascript:window.open("login.jsp","name99", "width=720px,height=720px");'>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/hi2.png"></img>
                         <em>동아리 추천</em></span>
                         <strong class="tit"><span>동아리 추천</span></strong>
