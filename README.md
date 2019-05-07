@@ -18,7 +18,9 @@
   - Workbench를 활용한 RD DB 설계 [완료]
 - [web](https://github.com/Jinseop95/Capstone_Design/tree/master/web)
   - 로그인 및 회원 가입 뷰 작성(CSS 적용) [완료]
-  - 회원 가입 기능 [진행중]
+  - 회원 가입 기능 [구현중]
+  - 동아리 검색 뷰 [구현중]
+  - 메인 페이지 [구현중]
 
 ## 회의록
   - [2019.03.12](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/1.md)
