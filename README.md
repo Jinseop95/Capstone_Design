@@ -16,7 +16,7 @@
 ## 진행 상황
 - [database](https://github.com/Jinseop95/Capstone_Design/tree/master/database)
 - [web](https://github.com/Jinseop95/Capstone_Design/tree/master/web)
-  - 로그인 및 회원 가입 뷰 작성(css 적용) [완료]
+  - 로그인 및 회원 가입 뷰 작성(CSS 적용) [완료]
   - 회원 가입 기능 [진행중]
 
 ## 회의록
@@ -29,3 +29,9 @@
   - [2019.04.29](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/7.md)
   - [2019.05.01](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/8.md)
   - [2019.05.02](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/9.md)
+
+## 디렉토리 구조
+```
+database        데이터베이스 
+web             웹 페이지(JSP, CSS 등) 소스 코드 
+meeting_notes   회의록
