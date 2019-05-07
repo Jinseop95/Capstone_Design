@@ -16,6 +16,8 @@
 ## 진행 상황
 - [database](https://github.com/Jinseop95/Capstone_Design/tree/master/database)
 - [web](https://github.com/Jinseop95/Capstone_Design/tree/master/web)
+  - 로그인 및 회원 가입 뷰 작성(css 적용) [완료]
+  - 회원 가입 기능 [진행중]
 
 ## 회의록
   - [2019.03.12](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/1.md)
