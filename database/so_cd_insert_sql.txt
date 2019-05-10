@@ -1,0 +1,26 @@
+
+
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('001001', '001', '중앙동아리');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('001002', '001', '과동아리');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('002001', '002', '학술');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('002002', '002', '운동');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('002003', '002', '봉사');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('002004', '002', '문화');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('002005', '002', '종교');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('002006', '002', '기타');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('003001', '003', '남');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('003002', '003', '여');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('004001', '004', '회장');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('004002', '004', '부회장');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('004003', '004', '총무');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('005001', '005', '재학');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('005002', '005', '퇴학');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('005003', '005', '휴학');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('005004', '005', '졸업');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('006001', '006', '정교수');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('006002', '006', '부교수');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('007001', '007', '공지사항');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('007002', '007', '자유게시판');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('007003', '007', 'QnA');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('007004', '007', '사진');
+INSERT INTO `mydb`.`so_cd` (`SO_CD`, `DAE_CD`, `SO_NM`) VALUES ('007005', '007', '일정');

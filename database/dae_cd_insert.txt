@@ -1,0 +1,7 @@
+INSERT INTO `mydb`.`dae_cd` (`DAE_CD`, `DAE_NM`) VALUES ('001', '클럽구분');
+INSERT INTO `mydb`.`dae_cd` (`DAE_CD`, `DAE_NM`) VALUES ('002', '동아리속성');
+INSERT INTO `mydb`.`dae_cd` (`DAE_CD`, `DAE_NM`) VALUES ('003', '성별');
+INSERT INTO `mydb`.`dae_cd` (`DAE_CD`, `DAE_NM`) VALUES ('004', '임원');
+INSERT INTO `mydb`.`dae_cd` (`DAE_CD`, `DAE_NM`) VALUES ('005', '재학');
+INSERT INTO `mydb`.`dae_cd` (`DAE_CD`, `DAE_NM`) VALUES ('006', '지도교수');
+INSERT INTO `mydb`.`dae_cd` (`DAE_CD`, `DAE_NM`) VALUES ('007', '게시판');
