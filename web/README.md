@@ -2,3 +2,7 @@
 - [main.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/main.jsp) : 메인 홈페이지
 - [login.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/login.jsp) : 로그인 및 회원 가입 
 - [dong_search.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/dong_search.jsp) : 동아리 검색
+- [club_form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_form.jsp) : 게시판 글 작성화면에서 동아리 검색 버튼 클릭 시 나오는 화면
+- [board.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/board.jsp) : 게시판 글 작성 화면
+- [studentInsert.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentInsert.jsp) : 회원가입 기능 처리
+- [studentSelect.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentSelect.jsp) : 회원목록.
