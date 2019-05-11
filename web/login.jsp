@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="kr">
+<html lang="UTF-8">
    <head>
    <meta charset="UTF-8">
-   <title>�α���</title>
+   <title>로그인</title>
 
 <style rel="stylesheet">
 html {
@@ -314,7 +314,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body onresize="parent.resizeTo(720,720)" onload="parent.resizeTo(720,720)">
 
 
 <!-- Form-->
@@ -322,16 +322,16 @@ body {
   <div class="form-toggle"></div>
   <div class="form-panel one">
     <div class="form-header">
-      <h1>Hallym ���Ƹ� ���� �÷���</h1>
+      <h1>Hallym 동아리 관리 플랫폼</h1>
     </div>
     <div class="form-content">
       <form>
         <div class="form-group">
-          <label for="username">ID(�й�)</label>
+          <label for="username">ID(학번)</label>
           <input type="text" id="username" name="username" required="required"/>
         </div>
         <div class="form-group">
-          <label for="password">��й�ȣ</label>
+          <label for="password">비밀번호</label>
           <input type="password" id="password" name="password" required="required"/>
         </div> 
         <div class="form-group">
@@ -342,28 +342,26 @@ body {
   </div>
   <div class="form-panel two">
     <div class="form-header">
-      <h1>ȸ�� ����</h1>
+      <h1>회원 가입</h1>
     </div>
     <div class="form-content">
-      <form>
-      <input type="button" id="btn" name="btn1" value="�ߺ� Ȯ��">
+      <form method = "post" action="studentInsert.jsp">
+      <input type="button" id="btn" name="btn1" value="중복 확인">
         <div class="form-group">
-          <label for="username">ID(�й�)</label>
+          <label for="username">ID(학번)</label>
           <input type="text" id="username" name="username" required="required"/>
         </div>
         <div class="form-group">
-          <label for="password">��й�ȣ</label>
+          <label for="password">비밀번호</label>
           <input type="password" id="password" name="password" required="required"/>
         </div>
         <div class="form-group">
-          <label for="cpassword">��й�ȣ Ȯ��</label>
+          <label for="cpassword">비밀번호 확인</label>
           <input type="password" id="cpassword" name="cpassword" required="required"/>
         </div>
-
-   
-        <div class="form-group">
-          <button type="submit">Register</button>
-        </div>
+		
+        	<input type="submit" value="Reigister" onclick="alert('123');">
+       
       </form>
     </div>
   </div>
