@@ -7,3 +7,4 @@
 - [studentInsert.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentInsert.jsp) : 회원가입 기능 처리
 - [studentSelect.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentSelect.jsp) : 회원목록.
 - [club_SignUp_Form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_SignUp_Form.jsp) : 동아리 회원가입 양식.
+- [manager_Test.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manager_Test.jsp) : 동아리 관리자 페이지 (Test).
