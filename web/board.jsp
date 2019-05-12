@@ -124,11 +124,11 @@ width:80%;
 			<td>분류/제목</td>
 			<td class="td_2">
 			<select name="items1">
-					<option value="공지사항">공지사항</option>
-					<option value="자유게시판">자유게시판</option>
-					<option value="QnA">QnA</option>
-					<option value="사진">사진</option>
-					<option value="일정">일정</option>
+					<option value="007001">공지사항</option>
+					<option value="007002">자유게시판</option>
+					<option value="007003">QnA</option>
+					<option value="007004">사진</option>
+					<option value="007005">일정</option>
 				</select>
 			<input type="text" name="title" size="70">
 			</td>
