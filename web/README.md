@@ -6,3 +6,4 @@
 - [board.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/board.jsp) : 게시판 글 작성 화면
 - [studentInsert.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentInsert.jsp) : 회원가입 기능 처리
 - [studentSelect.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentSelect.jsp) : 회원목록.
+- [club_SignUp_Form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_SignUp_Form.jsp) : 동아리 회원가입 양식.
