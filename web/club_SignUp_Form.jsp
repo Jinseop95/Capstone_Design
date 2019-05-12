@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
 	table.type03 {
@@ -65,38 +65,38 @@
 </head>
 <body>
 
-<h2>µ¿¾Æ¸® È¸¿ø°¡ÀÔ ½ÅÃ»¼­</h2>
+<h2>ë™ì•„ë¦¬ íšŒì›ê°€ìž… ì‹ ì²­ì„œ</h2>
 <form>
 <table class="type03">
     <tr>
-        <th rowspan="6" width="20%"><br><br><br>ÀÎ Àû<br>»ç Ç×</th>
-        <td width="20%">ÇÐ°ú<font>*</font></td>
+        <th rowspan="6" width="20%"><br><br><br>ì¸ ì <br>ì‚¬ í•­</th>
+        <td width="20%">í•™ê³¼<font>*</font></td>
         <td width="20%"><input type="text"></td> 
-        <td width="20%">ÇÐ³â<font>*</font></td>
+        <td width="20%">í•™ë…„<font>*</font></td>
         <td width="20%"><input type="text"></td>
     </tr>
     <tr>
-        <td>ÇÐ¹ø<font>*</font></td>
+        <td>í•™ë²ˆ<font>*</font></td>
         <td><input type="text"></td> 
-        <td>¼º¸í<font>*</font></td>
+        <td>ì„±ëª…<font>*</font></td>
         <td><input type="text" style="width:62%">
         <select name="gender">
-		    <option value="">¼ºº°*</option>
-		    <option value="male">³²¼º</option>
-		    <option value="female">¿©¼º</option>
+		    <option value="">ì„±ë³„*</option>
+		    <option value="male">ë‚¨ì„±</option>
+		    <option value="female">ì—¬ì„±</option>
 		</select>
   		</td>
     </tr>
     <tr>
-        <td>»ý³â¿ùÀÏ</td>
+        <td>ìƒë…„ì›”ì¼</td>
         <td colspan="3"><input type="text" style="width:99%" placeholder="  ex)  19951212"></td> 	
     </tr>
     <tr>
-        <td>ÀüÈ­¹øÈ£<font>*</font></td>
+        <td>ì „í™”ë²ˆí˜¸<font>*</font></td>
         <td colspan="3"><input type="text" style="width:99%" placeholder="  ex)  01012345678"></td> 	
     </tr>
     <tr>
-        <td>ÁÖ¼Ò</td>
+        <td>ì£¼ì†Œ</td>
         <td colspan="3"><input type="text" style="width:99%"></td> 
     </tr>
     <tr>
@@ -105,17 +105,17 @@
     </tr>
     
     <tr>
-    	<th><br>Â÷      ÈÄ<br>È°µ¿°èÈ¹</th>
+    	<th><br>ì°¨      í›„<br>í™œë™ê³„íš</th>
         <td colspan="4" height="100px"><textarea style="width:99%; height:99%; resize: none" ></textarea></td> 
     </tr>
     
     <tr>
-    	<th><br>¹Ù¶ó´Â Á¡</th>
+    	<th><br>ë°”ë¼ëŠ” ì </th>
         <td colspan="4" height="80px"><textarea style="width:99%; height:99%; resize: none" ></textarea></td> 
     </tr>
     <!-- 
     <tr>
-    	<th><br>ºñ°í</th>
+    	<th><br>ë¹„ê³ </th>
         <td colspan="4" height="80px"><textarea style="width:99%; height:99%; resize: none" ></textarea></td> 
     </tr>
 	 -->
@@ -123,12 +123,12 @@
 </table>
 
 <div class="bottom">
-À§ÀÇ ±âÀçÇÑ ³»¿ëÀÌ Æ²¸²¾øÀ½À» È®ÀÎÇÏ¸ç °¡ÀÔÀ» ½ÅÃ»ÇÕ´Ï´Ù.
+ìœ„ì˜ ê¸°ìž¬í•œ ë‚´ìš©ì´ í‹€ë¦¼ì—†ìŒì„ í™•ì¸í•˜ë©° ê°€ìž…ì„ ì‹ ì²­í•©ë‹ˆë‹¤.
 </div>
 
 <div class="apply">
-½ÅÃ»ÀÚ<font>*</font> ( <input type="text" style="width:30%;"> ) 
-<input type="submit" class="button" value="Á¦Ãâ ÇÏ±â">
+ì‹ ì²­ìž<font>*</font> ( <input type="text" style="width:30%;"> ) 
+<input type="submit" class="button" value="ì œì¶œ í•˜ê¸°">
 </div>
 
 </form>
