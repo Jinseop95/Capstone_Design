@@ -14,7 +14,7 @@
     border-left: 5px solid #369;
 	margin : 5px 3px;
 	}
-	table.type03 th {w
+	table.type03 th {
 	    padding: 3px;
 	    font-weight: bold;
 	    vertical-align: top;
