@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,10 +161,10 @@ button:hover:before,button:hover:after{
     <img src="img/logo.png" align="left" >
     <li><a href="#"></a></li>
     
-    <li><a href="main.html">¸ÞÀÎ ÆäÀÌÁö</a></li>
-    <li><a href="À¯Çü.html">µ¿¾Æ¸® Á¶È¸</a></li>
-    <li><a href="¹«Çü.html">°Ô½ÃÆÇ</a></li>
-    <li><a href="»ýÈ°.html">D</a></li>
+    <li><a href="main.html">ë©”ì¸ íŽ˜ì´ì§€</a></li>
+    <li><a href="ìœ í˜•.html">ë™ì•„ë¦¬ ì¡°íšŒ</a></li>
+    <li><a href="ë¬´í˜•.html">ê²Œì‹œíŒ</a></li>
+    <li><a href="ìƒí™œ.html">D</a></li>
     <li><a href="feedback.html">E</a></li>
   </ul>
   <br><br>
@@ -173,19 +173,19 @@ button:hover:before,button:hover:after{
   <br><br>
 <div id="toptop">
 
-<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;µ¿¾Æ¸® ¼Ò°³
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ë™ì•„ë¦¬ ì†Œê°œ
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <select name="jump" onchange="location.href=this.value">
-<option>¼±ÅÃ</option>
-<option value="http://www.naver.com">Áß¾Ó µ¿¾Æ¸®</option>
-<option value="http://www.daum.net">°ú µ¿¾Æ¸®</option>
+<option>ì„ íƒ</option>
+<option value="http://www.naver.com">ì¤‘ì•™ ë™ì•„ë¦¬</option>
+<option value="http://www.daum.net">ê³¼ ë™ì•„ë¦¬</option>
 </select>
 
-<button>¹®È­</button>
-<button>ºÀ»ç</button>
-<button>Á¾±³</button>
-<button>ÇÐ¼ú</button>
-<button>Ã¼À°</button>
+<button>ë¬¸í™”</button>
+<button>ë´‰ì‚¬</button>
+<button>ì¢…êµ</button>
+<button>í•™ìˆ </button>
+<button>ì²´ìœ¡</button>
 </h2>
 </div>
 <div id="wrap">
@@ -201,32 +201,32 @@ button:hover:before,button:hover:after{
     <table class="type09">
     <thead>
     <tr>
-        <th scope="cols" colspan="4">ÇÑ¸² SV</th>
+        <th scope="cols" colspan="4">í•œë¦¼ SV</th>
         
     </tr>
     </thead>
     <tbody>
     <tr>
-        <th scope="row">È¸¿ø¼ö</th>
-        <td>100¸í</td>
-         <th scope="row">°á¼º³âµµ</th>
-        <td>2019³â</td>
+        <th scope="row">íšŒì›ìˆ˜</th>
+        <td>100ëª…</td>
+         <th scope="row">ê²°ì„±ë…„ë„</th>
+        <td>2019ë…„</td>
     </tr>
    <tr>
-        <th scope="row">È¸Àå</th>
-        <td>ÀÌÁöÈÆ</td>
-         <th scope="row">Áöµµ±³¼ö</th>
-        <td>ÀÌ¼º·æ ±³¼ö´Ô</td>
+        <th scope="row">íšŒìž¥</th>
+        <td>ì´ì§€í›ˆ</td>
+         <th scope="row">ì§€ë„êµìˆ˜</th>
+        <td>ì´ì„±ë£¡ êµìˆ˜ë‹˜</td>
     </tr>
     <tr>
-        <th scope="row">¼³¸³¸ñÀû</th>
-        <td colspan="3">ÇÑ¸²ÀÎÀ» À§ÇÏ¿© ºÀ»çÇÏ¶ó!</td>
+        <th scope="row">ì„¤ë¦½ëª©ì </th>
+        <td colspan="3">í•œë¦¼ì¸ì„ ìœ„í•˜ì—¬ ë´‰ì‚¬í•˜ë¼!</td>
         
     </tr>
     
         <tr>
-        <th scope="row">ÁÖ¿äÈ°µ¿</th>
-        <td colspan="3">ÈÄ¹è¸¦ À§ÇÑ ¼±¹èÀÇ ¸àÅä¸µ</td>
+        <th scope="row">ì£¼ìš”í™œë™</th>
+        <td colspan="3">í›„ë°°ë¥¼ ìœ„í•œ ì„ ë°°ì˜ ë©˜í† ë§</td>
         
     </tr>
     
@@ -244,32 +244,32 @@ button:hover:before,button:hover:after{
     <table class="type09">
     <thead>
     <tr>
-        <th scope="cols" colspan="4">ºí·¹½º</th>
+        <th scope="cols" colspan="4">ë¸”ë ˆìŠ¤</th>
         
     </tr>
     </thead>
     <tbody>
     <tr>
-        <th scope="row">È¸¿ø¼ö</th>
-        <td>15¸í</td>
-         <th scope="row">°á¼º³âµµ</th>
-        <td>1985³â</td>
+        <th scope="row">íšŒì›ìˆ˜</th>
+        <td>15ëª…</td>
+         <th scope="row">ê²°ì„±ë…„ë„</th>
+        <td>1985ë…„</td>
     </tr>
    <tr>
-        <th scope="row">È¸Àå</th>
-        <td>±èÁø¼·</td>
-         <th scope="row">Áöµµ±³¼ö</th>
-        <td>ÀÌÁ¤ ±³¼ö´Ô</td>
+        <th scope="row">íšŒìž¥</th>
+        <td>ê¹€ì§„ì„­</td>
+         <th scope="row">ì§€ë„êµìˆ˜</th>
+        <td>ì´ì • êµìˆ˜ë‹˜</td>
     </tr>
     <tr>
-        <th scope="row">¼³¸³¸ñÀû</th>
-        <td colspan="3">Ãà±¸¸¦ ÇÏ±âÀ§ÇÑ ¸ðÀÓ</td>
+        <th scope="row">ì„¤ë¦½ëª©ì </th>
+        <td colspan="3">ì¶•êµ¬ë¥¼ í•˜ê¸°ìœ„í•œ ëª¨ìž„</td>
         
     </tr>
     
         <tr>
-        <th scope="row">ÁÖ¿äÈ°µ¿</th>
-        <td colspan="3">¸ÅÁÖ È­¿äÀÏ ¾ÆÄ§ 9½Ã Ãà±¸ ½ÃÇÕ </td>
+        <th scope="row">ì£¼ìš”í™œë™</th>
+        <td colspan="3">ë§¤ì£¼ í™”ìš”ì¼ ì•„ì¹¨ 9ì‹œ ì¶•êµ¬ ì‹œí•© </td>
         
     </tr>
     
@@ -286,32 +286,32 @@ button:hover:before,button:hover:after{
     <table class="type09">
     <thead>
     <tr>
-        <th scope="cols" colspan="4">¼ÒÈ®Çà</th>
+        <th scope="cols" colspan="4">ì†Œí™•í–‰</th>
         
     </tr>
     </thead>
     <tbody>
     <tr>
-        <th scope="row">È¸¿ø¼ö</th>
-        <td>300¸í</td>
-         <th scope="row">°á¼º³âµµ</th>
-        <td>2002³â</td>
+        <th scope="row">íšŒì›ìˆ˜</th>
+        <td>300ëª…</td>
+         <th scope="row">ê²°ì„±ë…„ë„</th>
+        <td>2002ë…„</td>
     </tr>
    <tr>
-        <th scope="row">È¸Àå</th>
-        <td>±èÁ¤ÀÎ</td>
-         <th scope="row">Áöµµ±³¼ö</th>
-        <td>±èÀºÁÖ ±³¼ö´Ô</td>
+        <th scope="row">íšŒìž¥</th>
+        <td>ê¹€ì •ì¸</td>
+         <th scope="row">ì§€ë„êµìˆ˜</th>
+        <td>ê¹€ì€ì£¼ êµìˆ˜ë‹˜</td>
     </tr>
     <tr>
-        <th scope="row">¼³¸³¸ñÀû</th>
-        <td colspan="3">¼Ò¼ÒÇÑ Çàº¹À» ´©¸®±â À§ÇÔ</td>
+        <th scope="row">ì„¤ë¦½ëª©ì </th>
+        <td colspan="3">ì†Œì†Œí•œ í–‰ë³µì„ ëˆ„ë¦¬ê¸° ìœ„í•¨</td>
         
     </tr>
     
         <tr>
-        <th scope="row">ÁÖ¿äÈ°µ¿</th>
-        <td colspan="3">ÆÄÀÌ½ã ¸àÅä¸µ</td>
+        <th scope="row">ì£¼ìš”í™œë™</th>
+        <td colspan="3">íŒŒì´ì¬ ë©˜í† ë§</td>
         
     </tr>
     
@@ -328,32 +328,32 @@ button:hover:before,button:hover:after{
     <table class="type09">
     <thead>
     <tr>
-        <th scope="cols" colspan="4">»ï¹ÚÀÚ</th>
+        <th scope="cols" colspan="4">ì‚¼ë°•ìž</th>
         
     </tr>
     </thead>
     <tbody>
     <tr>
-        <th scope="row">È¸¿ø¼ö</th>
-        <td>3¸í</td>
-         <th scope="row">°á¼º³âµµ</th>
-        <td>2019³â</td>
+        <th scope="row">íšŒì›ìˆ˜</th>
+        <td>3ëª…</td>
+         <th scope="row">ê²°ì„±ë…„ë„</th>
+        <td>2019ë…„</td>
     </tr>
    <tr>
-        <th scope="row">È¸Àå</th>
-        <td>¹ÚÅÂ¾ð</td>
-         <th scope="row">Áöµµ±³¼ö</th>
-        <td>±èÀ¯¼· ±³¼ö´Ô</td>
+        <th scope="row">íšŒìž¥</th>
+        <td>ë°•íƒœì–¸</td>
+         <th scope="row">ì§€ë„êµìˆ˜</th>
+        <td>ê¹€ìœ ì„­ êµìˆ˜ë‹˜</td>
     </tr>
     <tr>
-        <th scope="row">¼³¸³¸ñÀû</th>
-        <td colspan="3">Áö,´ö,Ã¼ ¸¦ ÇÔÀ¯ÇÏ±â À§ÇÔ</td>
+        <th scope="row">ì„¤ë¦½ëª©ì </th>
+        <td colspan="3">ì§€,ë•,ì²´ ë¥¼ í•¨ìœ í•˜ê¸° ìœ„í•¨</td>
         
     </tr>
     
         <tr>
-        <th scope="row">ÁÖ¿äÈ°µ¿</th>
-        <td colspan="3">°øºÎ µµ´ö Ã¼À°</td>
+        <th scope="row">ì£¼ìš”í™œë™</th>
+        <td colspan="3">ê³µë¶€ ë„ë• ì²´ìœ¡</td>
         
     </tr>
     
