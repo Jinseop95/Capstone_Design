@@ -4,8 +4,10 @@
 <html>
 <head>
     <style>
+    body{
+    margin:0;}
     #wrap{
-width:75%;
+width:90%;
 margin:auto;
 }
 
@@ -15,12 +17,13 @@ margin:auto;
     float:left;
     margin-left:12.5%;
     margin-right:12.5%;
+    text-align:left;
     
 }
 
-#menu{width:20%;
-    height:700px;
-    background-color:#114F7D;
+#menu{width:12.5%;
+    height:1200px;
+
     float:left;
 }
 
@@ -29,8 +32,7 @@ width:25%;
 height:250px;
 background-color:yellow;
 float:left;
-margin-left:2%;
-margin-right:0.5%;
+margin:auto;
 }
 
 #t1{ 
@@ -47,30 +49,6 @@ margin-right:0.5%;
    margin-left:5%;
 }
 
-    ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-color:#114f7d
-    color:white;
-}
-li{border:1px solid black;color: white;}
-li a {
-    display: block;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-li a.active {
-    background-color: #114f7d; 
-    color: white;
-}
-li a:hover:not(.active) {
-    background-color: #092c47;
-    color: white;
-    font-size:150%;
-}
 
 table.type09 {
    
@@ -143,28 +121,79 @@ button:hover:before,button:hover:after{
   transition:800ms ease all;
 }
 
+
+
+ .fixbar {
+    margin: auto;
+    padding: 0px;
+    list-style: none;
+    position: fixed;
+    width: 100%;
+    text-align: left;
+    background-color: #114f7d ;
+  }
+  .fixbar li {
+  	
+    display: inline-block;
+    
+  }
+  .fixbar li a {
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 27px 40px;
+    display: block;
+  }
+
+  ul li a:hover{
+    text-decoration: underline;
+    font-size: 140%;
+    opacity: 1.0;
+    /* color: black; */
+  }
+
 </style>
 </head>
+
 <body>
+<ul class="fixbar">
+    <img src="img/logo.png" align="left" >
+    <li><a href="#"></a></li>
+    
+    <li><a href="main.html">메인 페이지</a></li>
+    <li><a href="유형.html">동아리 조회</a></li>
+    <li><a href="무형.html">게시판</a></li>
+    <li><a href="생활.html">D</a></li>
+    <li><a href="feedback.html">E</a></li>
+  </ul>
+  <br><br>
+  <br><br>
+
+  <br><br>
 <div id="toptop">
-<h2> <img src=img/logo_.gif width=8%;> �л� ��Ȱ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;���Ƹ� �Ұ�
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button>��ȭ</button>
-<button>����</button>
-<button>����</button>
-<button>�м�</button>
-<button>ü��</button>
+
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;동아리 소개
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<select name="jump" onchange="location.href=this.value">
+<option>선택</option>
+<option value="http://www.naver.com">중앙 동아리</option>
+<option value="http://www.daum.net">과 동아리</option>
+</select>
+
+<button>문화</button>
+<button>봉사</button>
+<button>종교</button>
+<button>학술</button>
+<button>체육</button>
 </h2>
 </div>
 <div id="wrap">
+
 <div id="menu">
-    <ul>
-      
-      <li><a href="#news">���Ƹ� ��ȸ</a></li>
-      <li><a href="#contact">���Ƹ� ��õ</a></li>
-      <li><a href="#about">�Խ���</a></li>
-    </ul>
 </div>
+
+
 <div id="img">
 <img src="img/b1.jpg" width=100%; height=100%;>
 </div>
@@ -172,41 +201,171 @@ button:hover:before,button:hover:after{
     <table class="type09">
     <thead>
     <tr>
-        <th scope="cols" colspan="4">���Ƹ���</th>
+        <th scope="cols" colspan="4">한림 SV</th>
         
     </tr>
     </thead>
     <tbody>
     <tr>
-        <th scope="row">ȸ����</th>
-        <td>12��</td>
-         <th scope="row">�Ἲ�⵵</th>
-        <td>12��</td>
+        <th scope="row">회원수</th>
+        <td>100명</td>
+         <th scope="row">결성년도</th>
+        <td>2019년</td>
     </tr>
    <tr>
-        <th scope="row">ȸ��</th>
-        <td>12��</td>
-         <th scope="row">��������</th>
-        <td>12��</td>
+        <th scope="row">회장</th>
+        <td>이지훈</td>
+         <th scope="row">지도교수</th>
+        <td>이성룡 교수님</td>
     </tr>
     <tr>
-        <th scope="row">��������</th>
-        <td colspan="3">������ ���ϴپϳ׾�Ϥ��ľ���������ĸž�����Ĥþ֤����ճĸ�.</td>
+        <th scope="row">설립목적</th>
+        <td colspan="3">한림인을 위하여 봉사하라!</td>
         
     </tr>
     
         <tr>
-        <th scope="row">�ֿ�Ȱ��</th>
-        <td colspan="3">������ ���ϴپϳ׾�Ϥ��ľ���������ĸž�����Ĥþ֤����ճĸ�.</td>
+        <th scope="row">주요활동</th>
+        <td colspan="3">후배를 위한 선배의 멘토링</td>
         
     </tr>
     
     </tbody>
 </table>
+
+<br><br>
+<br><br>
+
 </div>
+    <div id="img">
+<img src="img/b1.jpg" width=100%; height=100%;>
+</div>
+<div id="t1">
+    <table class="type09">
+    <thead>
+    <tr>
+        <th scope="cols" colspan="4">블레스</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">회원수</th>
+        <td>15명</td>
+         <th scope="row">결성년도</th>
+        <td>1985년</td>
+    </tr>
+   <tr>
+        <th scope="row">회장</th>
+        <td>김진섭</td>
+         <th scope="row">지도교수</th>
+        <td>이정 교수님</td>
+    </tr>
+    <tr>
+        <th scope="row">설립목적</th>
+        <td colspan="3">축구를 하기위한 모임</td>
+        
+    </tr>
     
+        <tr>
+        <th scope="row">주요활동</th>
+        <td colspan="3">매주 화요일 아침 9시 축구 시합 </td>
+        
+    </tr>
     
+    </tbody>
+</table>
+<br><br>
+<br><br>
+
+</div>
+    <div id="img">
+<img src="img/b1.jpg" width=100%; height=100%;>
+</div>
+<div id="t1">
+    <table class="type09">
+    <thead>
+    <tr>
+        <th scope="cols" colspan="4">소확행</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">회원수</th>
+        <td>300명</td>
+         <th scope="row">결성년도</th>
+        <td>2002년</td>
+    </tr>
+   <tr>
+        <th scope="row">회장</th>
+        <td>김정인</td>
+         <th scope="row">지도교수</th>
+        <td>김은주 교수님</td>
+    </tr>
+    <tr>
+        <th scope="row">설립목적</th>
+        <td colspan="3">소소한 행복을 누리기 위함</td>
+        
+    </tr>
     
-    </div>
+        <tr>
+        <th scope="row">주요활동</th>
+        <td colspan="3">파이썬 멘토링</td>
+        
+    </tr>
+    
+    </tbody>
+</table>
+<br><br>
+<br><br>
+
+</div>
+    <div id="img">
+<img src="img/b1.jpg" width=100%; height=100%;>
+</div>
+<div id="t1">
+    <table class="type09">
+    <thead>
+    <tr>
+        <th scope="cols" colspan="4">삼박자</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">회원수</th>
+        <td>3명</td>
+         <th scope="row">결성년도</th>
+        <td>2019년</td>
+    </tr>
+   <tr>
+        <th scope="row">회장</th>
+        <td>박태언</td>
+         <th scope="row">지도교수</th>
+        <td>김유섭 교수님</td>
+    </tr>
+    <tr>
+        <th scope="row">설립목적</th>
+        <td colspan="3">지,덕,체 를 함유하기 위함</td>
+        
+    </tr>
+    
+        <tr>
+        <th scope="row">주요활동</th>
+        <td colspan="3">공부 도덕 체육</td>
+        
+    </tr>
+    
+    </tbody>
+</table>
+<br><br>
+<br><br>
+
+
+</div>
+
+
+
 </body>
 </html>
