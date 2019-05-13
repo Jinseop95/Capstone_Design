@@ -39,4 +39,5 @@ database        데이터베이스
 web             웹 페이지(JSP, CSS 등) 소스 코드 
 meeting_notes   회의록
 Weekplan        주간 보고서
+stortboard      화면 및 메뉴 설계, 메뉴 개발 진행 현황
 ```
