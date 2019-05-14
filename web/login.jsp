@@ -396,7 +396,6 @@ body {
 					<div class="form-group">
           				<button type="submit" id="btn_submit">Register</button>
         			</div>
-					<!--  <input type="submit" id="btn_submit" value="Register">-->
 				</form>
 
 			</div>
