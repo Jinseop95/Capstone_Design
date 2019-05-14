@@ -364,11 +364,11 @@ body {
 				<form>
 					<div class="form-group">
 						<label for="username">ID(학번)</label> <input type="text"
-							id="username" name="username" required="required" />
+							id="login_username" name="login_username" required="required" />
 					</div>
 					<div class="form-group">
 						<label for="password">비밀번호</label> <input type="password"
-							id="password" name="password" required="required" />
+							id="login_password" name="login_password" required="required" />
 					</div>
 					<div class="form-group">
 						<button type="submit">Log In</button>
@@ -383,7 +383,7 @@ body {
 			<div class="form-content">
 				<form id="login-form" method="post" action="studentInsert.jsp">
 
-					<input type="button" id="btn" name="btn1" value="중복 확인">
+					<input type="button" id="btn" name="btn1" value="중복 검사" onclick="confirmId()">
 					<div class="form-group">
 						<label for="username">ID(학번)</label> <input type="text" id="username" name="username" required="required" />
 					</div>
@@ -403,9 +403,65 @@ body {
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript">
+	var result = false;
+	var chk = false;
+	function confirmId(){
+		var username = document.getElementById("username").value;
+		
+		if(username.trim() == ""){
+			alert("아이디를 입력해주세요");
+			result = false;
+			return false;
+		}
+		url = "confirmId.jsp?username="+username;
+		open(url,"중복 검사","width=400,height=150,resizable=yes,top=300,left=400, scrollbars = no");
+		result = true;
+	}
+	
+	$("#username").on("change paste keyup", function() { 
+		   result = false;
+		});
 	
 	
 	$("#btn_submit").click(function(e) {
+		var username = $("#username");
+		var password = $("#password");
+		var cpassword = $("#cpassword");
+
+		if (username.val().trim() == ""){
+			alert("아이디를 입력해주세요");
+			username.focus();
+			e.preventDefault();
+			return false;
+		}
+		
+		if (result == false){
+			alert("ID 중복검사를 해주세요");
+			e.preventDefault();
+			return false;
+		}
+		
+		if (username.val().trim() == ""){
+			alert("아이디를 입력해주세요");
+			username.focus();
+			e.preventDefault();
+			return false;
+		}
+		
+		if (password.val().trim() == ""){
+			alert("비밀번호를 입력해주세요");
+			password.focus();
+			e.preventDefault();
+			return false;
+		}
+		
+		if (password.val() != cpassword.val()){
+			alert("비밀번호를 확인해주세요");
+			cpassword.focus();
+			e.preventDefault();
+			return false;
+		}
+		
 		e.preventDefault();
 		$('#login-form')[0].submit();
 	});
