@@ -1,3 +1,7 @@
+<%@page import="java.net.URLEncoder"%>
+<%@page import="exam.jdbc.ClubVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="exam.jdbc.JDBC_clubDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -33,6 +37,7 @@ height:250px;
 background-color:yellow;
 float:left;
 margin:auto;
+margin-right:15px;
 }
 
 #t1{ 
@@ -133,7 +138,7 @@ button:hover:before,button:hover:after{
     background-color: #114f7d ;
   }
   .fixbar li {
-  	
+     
     display: inline-block;
     
   }
@@ -153,12 +158,30 @@ button:hover:before,button:hover:after{
     /* color: black; */
   }
 
+h2 {margin-left:100px;]}
+
 </style>
 </head>
 
 <body>
+<%request.setCharacterEncoding("UTF-8");
+String club_gb_cd ="";	//클럽 구분(중앙,과)
+String club_at_cd ="";	//클럽 속성(학술,운동)
+
+if(request.getParameter("club_gb_cd") != null){
+	club_gb_cd = request.getParameter("club_gb_cd");
+}
+
+if(request.getParameter("club_at_cd") != null){
+	club_at_cd = request.getParameter("club_at_cd");
+}
+%>
+
+<jsp:useBean id="dao" class="exam.jdbc.JDBC_clubDAO" />
+
+
 <ul class="fixbar">
-    <img src="img/logo.png" align="left" >
+    <img src="img/logo.png" align="left" />
     <li><a href="#"></a></li>
     
     <li><a href="main.html">메인 페이지</a></li>
@@ -173,26 +196,36 @@ button:hover:before,button:hover:after{
   <br><br>
 <div id="toptop">
 
-<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;동아리 소개
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<select name="jump" onchange="location.href=this.value">
-<option>선택</option>
-<option value="http://www.naver.com">중앙 동아리</option>
-<option value="http://www.daum.net">과 동아리</option>
-</select>
+<h2>동아리소개
 
-<button>문화</button>
-<button>봉사</button>
-<button>종교</button>
-<button>학술</button>
-<button>체육</button>
+<form method="get" action="club_search.jsp">
+	<select name="club_gb_cd" onchange="this.form.submit();">
+		<option value="">전체</option>
+		<option value="001001" <%if(club_gb_cd.equals("001001")) out.println("selected");%>>중앙 동아리</option>
+		<option value="001002" <%if(club_gb_cd.equals("001002")) out.println("selected");%>>과 동아리</option>
+	</select>
+
+	<button name="club_at_cd" onclick="this.form.submit()" value="">전체</button>
+	<button name="club_at_cd" onclick="this.form.submit()" value="002001">학술</button>
+	<button name="club_at_cd" onclick="this.form.submit()" value="002002">운동</button>
+	<button name="club_at_cd" onclick="this.form.submit()" value="002003">봉사</button>
+	<button name="club_at_cd" onclick="this.form.submit()" value="002004">문화</button>
+	<button name="club_at_cd" onclick="this.form.submit()" value="002005">종교</button>
+	<button name="club_at_cd" onclick="this.form.submit()" value="002006">기타</button>
+</form>
 </h2>
+
 </div>
 <div id="wrap">
 
 <div id="menu">
 </div>
 
+<%
+ArrayList<ClubVO> gb_list = dao.getClublist(club_gb_cd,club_at_cd);
+
+for(ClubVO vo : gb_list){
+%>
 
 <div id="img">
 <img src="img/b1.jpg" width=100%; height=100%;>
@@ -201,16 +234,16 @@ button:hover:before,button:hover:after{
     <table class="type09">
     <thead>
     <tr>
-        <th scope="cols" colspan="4">한림 SV</th>
+        <th scope="col" colspan="4"><%=vo.getClub_nm() %></th>
         
     </tr>
     </thead>
     <tbody>
     <tr>
         <th scope="row">회원수</th>
-        <td>100명</td>
+        <td><%=vo.getCnt() %>명</td>
          <th scope="row">결성년도</th>
-        <td>2019년</td>
+        <td><%=vo.getOpen_dt().substring(0,4) %>년</td>
     </tr>
    <tr>
         <th scope="row">회장</th>
@@ -220,13 +253,13 @@ button:hover:before,button:hover:after{
     </tr>
     <tr>
         <th scope="row">설립목적</th>
-        <td colspan="3">한림인을 위하여 봉사하라!</td>
+        <td colspan="3"><%=vo.getClub_aim() %></td>
         
     </tr>
     
         <tr>
         <th scope="row">주요활동</th>
-        <td colspan="3">후배를 위한 선배의 멘토링</td>
+        <td colspan="3"><%=vo.getClub_active() %></td>
         
     </tr>
     
@@ -237,135 +270,10 @@ button:hover:before,button:hover:after{
 <br><br>
 
 </div>
-    <div id="img">
-<img src="img/b1.jpg" width=100%; height=100%;>
-</div>
-<div id="t1">
-    <table class="type09">
-    <thead>
-    <tr>
-        <th scope="cols" colspan="4">블레스</th>
-        
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">회원수</th>
-        <td>15명</td>
-         <th scope="row">결성년도</th>
-        <td>1985년</td>
-    </tr>
-   <tr>
-        <th scope="row">회장</th>
-        <td>김진섭</td>
-         <th scope="row">지도교수</th>
-        <td>이정 교수님</td>
-    </tr>
-    <tr>
-        <th scope="row">설립목적</th>
-        <td colspan="3">축구를 하기위한 모임</td>
-        
-    </tr>
-    
-        <tr>
-        <th scope="row">주요활동</th>
-        <td colspan="3">매주 화요일 아침 9시 축구 시합 </td>
-        
-    </tr>
-    
-    </tbody>
-</table>
-<br><br>
-<br><br>
+
+<%} %>
 
 </div>
-    <div id="img">
-<img src="img/b1.jpg" width=100%; height=100%;>
-</div>
-<div id="t1">
-    <table class="type09">
-    <thead>
-    <tr>
-        <th scope="cols" colspan="4">소확행</th>
-        
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">회원수</th>
-        <td>300명</td>
-         <th scope="row">결성년도</th>
-        <td>2002년</td>
-    </tr>
-   <tr>
-        <th scope="row">회장</th>
-        <td>김정인</td>
-         <th scope="row">지도교수</th>
-        <td>김은주 교수님</td>
-    </tr>
-    <tr>
-        <th scope="row">설립목적</th>
-        <td colspan="3">소소한 행복을 누리기 위함</td>
-        
-    </tr>
-    
-        <tr>
-        <th scope="row">주요활동</th>
-        <td colspan="3">파이썬 멘토링</td>
-        
-    </tr>
-    
-    </tbody>
-</table>
-<br><br>
-<br><br>
-
-</div>
-    <div id="img">
-<img src="img/b1.jpg" width=100%; height=100%;>
-</div>
-<div id="t1">
-    <table class="type09">
-    <thead>
-    <tr>
-        <th scope="cols" colspan="4">삼박자</th>
-        
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">회원수</th>
-        <td>3명</td>
-         <th scope="row">결성년도</th>
-        <td>2019년</td>
-    </tr>
-   <tr>
-        <th scope="row">회장</th>
-        <td>박태언</td>
-         <th scope="row">지도교수</th>
-        <td>김유섭 교수님</td>
-    </tr>
-    <tr>
-        <th scope="row">설립목적</th>
-        <td colspan="3">지,덕,체 를 함유하기 위함</td>
-        
-    </tr>
-    
-        <tr>
-        <th scope="row">주요활동</th>
-        <td colspan="3">공부 도덕 체육</td>
-        
-    </tr>
-    
-    </tbody>
-</table>
-<br><br>
-<br><br>
-
-
-</div>
-
-
 
 </body>
 </html>

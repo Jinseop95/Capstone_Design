@@ -145,7 +145,7 @@ text-decoration:none;
                <ul>
                   <!-- 컨텐츠하나 ---------------------- // -->
                   <li class="ico1">
-                     <a href="dong_search.jsp">
+                     <a href="club_search.jsp">
                      <span>
                      	
                      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/hi3.png"></img>
