@@ -1,6 +1,6 @@
 ## 파일 기능
 - [main.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/main.jsp) : 메인 홈페이지.
-- [login.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/login.jsp) : 로그인 및 회원 가입 .
+- [signUp.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/signUp.jsp) : 회원 가입 .
 - [confirmId.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/confirmId.jsp) : 아이디 중복 검사 기능 처리.
 - [club_search.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_search.jsp) : 동아리 검색.
 - [club_form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_form.jsp) : 게시판 글 작성 화면에서 동아리 검색 버튼 클릭 시 나오는 화면.
