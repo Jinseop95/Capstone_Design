@@ -130,6 +130,8 @@ width:80%;
 					<option value="007004">사진</option>
 					<option value="007005">일정</option>
 				</select>
+				
+				
 			<input type="text" name="title" size="70">
 			</td>
 		</tr>

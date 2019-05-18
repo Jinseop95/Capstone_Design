@@ -28,7 +28,7 @@
 
 <%request.setCharacterEncoding("UTF-8");%>
  
-    <jsp:useBean id="vo" class="exam.jdbc.StudentVO" />
+    <jsp:useBean id="vo" class="Student.StudentVO" />
     <jsp:setProperty property="*" name="vo"/>
     <jsp:useBean id="dao" class="exam.jdbc.JDBC_studentDAO"/>
     

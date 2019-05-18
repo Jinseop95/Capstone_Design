@@ -173,6 +173,26 @@ button:hover:before,button:hover:after{
     padding: 27px 40px;
     display: block;
   }
+	.fixbar .login{
+		position: absolute;
+	height: 100%;
+	top:50%;
+	right:10%;
+	z-index:9999;
+	border-radius: 10px;
+	float: left;
+	text-align: center;
+	font-size: 15px;
+	color:white;;
+	}
+	
+	.fixbar .login a{
+		color: white;
+		opacity: 1.0;
+		/* text-decoration: non: ;e; */
+		font-weight: bold;
+		font-size: 15px;
+	}
 
   ul li a:hover{
     text-decoration: underline;
@@ -198,6 +218,14 @@ display:inline;
 </head>
 
 <body>
+
+<%
+		String username = null;
+		if(session.getAttribute("username") != null){
+			username = (String)session.getAttribute("username");
+		}
+	  %>
+	  
 <%request.setCharacterEncoding("UTF-8");
 String club_gb_cd ="";	//클럽 구분(중앙,과)
 String club_at_cd ="";	//클럽 속성(학술,운동)
@@ -229,18 +257,63 @@ if(request.getParameter("pageNumber") != null){
 <ul class="fixbar">
     <img src="img/logo.png" align="left" />
     <li><a href="#"></a></li>
-    
     <li><a href="main.html">메인 페이지</a></li>
     <li><a href="유형.html">동아리 조회</a></li>
     <li><a href="무형.html">게시판</a></li>
     <li><a href="생활.html">D</a></li>
     <li><a href="feedback.html">E</a></li>
+    <%
+	if(username==null){	
+	%>
+ 	  <div class="login">
+				<form method="post" action="LoginAction.jsp">
+					<input type="text" name="username" style="width:130px; height:30px;">
+					<input type="passWord" name="password" style="width:130px; height:30px;">
+					<input type="submit" value="로그인 ">
+	        		<a href='#' onclick='javascript:window.open("signUp.jsp","name99", "width=720px,height=720px");'>회원가입</a>
+	  			</form>
+	 </div>
+	<%
+	} else{
+	%>
+	<div class="login">
+				<%
+					out.print((String)session.getAttribute("username")+" 님 어서오세요.");
+				%>
+	        <a href='logoutAction.jsp'>로그아웃</a></li>
+				</form>
+	    </div>
+	<%
+	
+	}%>
   </ul>
+  
+	
   <br><br>
   <br><br>
 
   <br><br>
+  
 
+<%
+String title="";
+if (club_at_cd.equals("002001")){
+		title="학술 동아리 소개";
+}else if(club_at_cd.equals("002002")){
+		title="운동 동아리 소개";
+	}else if(club_at_cd.equals("002003")){
+	title="봉사 동아리 소개";
+}else if(club_at_cd.equals("002004")){
+	title="문화 동아리 소개";
+}else if(club_at_cd.equals("002005")){
+	title="종교 동아리 소개";
+}else if(club_at_cd.equals("002006")){
+	title="기타 동아리 소개";
+}else {
+	title="전체 동아리 소개";
+}
+
+%>
 
 
 <div id="wrapper">
@@ -249,7 +322,7 @@ if(request.getParameter("pageNumber") != null){
 		<form method="get" action="club_search.jsp">
 			
 			<ul class="club_list">
-			<li class="title">동아리소개</li>
+			<li class="title"><%=title %></li>
 			<li>
 			<select name="club_gb_cd" onchange="this.form.submit();">
 				<option value="">전체</option>
@@ -266,6 +339,7 @@ if(request.getParameter("pageNumber") != null){
 			<li><button name="club_at_cd" onclick="this.form.submit()" value="002006">기타</button></li>
 			</ul>
 		</form>
+		
 	
 <%
 ArrayList<ClubVO> gb_list = dao.getClublist(club_gb_cd,club_at_cd,pageNumber);
@@ -383,5 +457,7 @@ if (endPage < totalPage){%>
 <div id="right_side"></div>
 <div id="footer"></div>
 </div>
+
+
 </body>
 </html>
