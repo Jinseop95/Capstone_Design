@@ -27,15 +27,15 @@
   
 
 ## 회의록
-  - [2019.03.12](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/1.md)
-  - [2019.03.16](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2.md)
-  - [2019.03.21](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/3.md)
-  - [2019.04.03](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/4.md)
-  - [2019.04.07](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/5.md)
-  - [2019.04.14](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/6.md)
-  - [2019.04.29](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/7.md)
-  - [2019.05.01](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/8.md)
-  - [2019.05.02](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/9.md)
+  - [2019.03.12](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_03_12.md)
+  - [2019.03.16](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_03_16.md)
+  - [2019.03.21](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_03_21.md)
+  - [2019.04.03](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_04_03.md)
+  - [2019.04.07](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_04_07.md)
+  - [2019.04.14](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_04_14.md)
+  - [2019.04.29](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_04_29.md)
+  - [2019.05.01](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_01.md)
+  - [2019.05.02](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_02.md)
 
 ## 디렉토리 구조
 ```
