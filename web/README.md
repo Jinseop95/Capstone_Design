@@ -16,5 +16,6 @@
 - [updateAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 수정시 예외처리
 - [deleteAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 삭제 처리
 - [LoginAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 로그인 예외처리
-- [logoutAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 로그아웃 처리
+- [logoutAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 로그아웃 처리 
+- [myInfo.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/myInfo.jsp) : 나의 정보 
 
