@@ -1,11 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+	pageEncoding="UTF-8"%>
+
+<%@ page import="java.io.PrintWriter"%>
+
+<!DOCTYPE html>
+
 <html>
+
 <head>
-<script type="text/javascript" src="smarteditor2/demo/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>한림대학교 동아리 관리</title>
+
+<!-- 뷰포트 -->
+
+<meta name="viewport" content="width=device-width" initial-scale="1">
+
+<!-- 스타일시트 참조  -->
+
+<link rel="stylesheet" href="css/bootstrap.css">
+
+<title>jsp 게시판 웹사이트</title>
 <style>
 	table.type03 {
     border-collapse: collapse;
@@ -88,10 +103,10 @@
 		-khtml-opacity:0;
 		-moz-opacity:0;
 	}
-*/
+
 	</style>
 	
- <script type="text/javascript">
+	<script type="text/javascript">
     
         var openWin;
     
@@ -107,36 +122,52 @@
         
    </script>
 
-
 </head>
 
-<style>
-.td_2{
-width:80%;
-}
-</style>
 <body>
-<h3>글 쓰기</h3>
 
-<form name="board_form" method="post" action="">
+	<%
+
+		//로긴한사람이라면	 userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
+
+		String userID = null;
+
+		if (session.getAttribute("username") != null) {
+
+			userID = (String) session.getAttribute("username");
+
+		}
+
+	%>
+
+
+
+
+
+	<div class="container">
+
+		<div class="row">
+
+			<form name="board_form" method="post" action="writeAction.jsp">
 	<table class="type03" width="800px;" height="80px;">
 		<tr>
 			<td>분류/제목</td>
 			<td class="td_2">
-			<select name="items1">
-					<option value="007001">공지사항</option>
-					<option value="007002">자유게시판</option>
-					<option value="007003">QnA</option>
-					<option value="007004">사진</option>
-					<option value="007005">일정</option>
+			<select name="board_cd">
+					<option>공지사항</option>
+					<option>자유게시판</option>
+					<option>QnA</option>
+					<option>사진</option>
+					<option>일정</option>
 				</select>
-			<input type="text" name="title" size="70">
+	 
+			<input type="text" name="TITLE" size="70">
 			</td>
 		</tr>
 		
 		<tr>
 			<td>동아리명</td>
-			<td class="td_2"><input type="text" name="title" id="title" size="20">
+			<td class="td_2"><input type="text" name="BOARD_NO" id="title" size="20">
 			<input class="button2" type="button" value="동아리검색" onclick="openChild()"> </td>
 		</tr>	
 			<tr>
@@ -156,7 +187,7 @@ width:80%;
 		</tr>
 			<tr>
 			<td>내용</td>			
-			<td class="td_2"><textarea name="content" id="content" rows="22" style="width:645px;"></textarea>
+			<td class="td_2"><textarea name="CONTENTS" id="bbsTitle" rows="22" style="width:645px;"></textarea>
 			
 				<script type="text/javascript">
 					 var oEditors = [];
@@ -176,5 +207,32 @@ width:80%;
 	<input class="button" type ="reset" name="취소" value="취소">
 	</div>
 </form>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- 애니매이션 담당 JQUERY -->
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<!-- 부트스트랩 JS  -->
+
+	<script src="js/bootstrap.js"></script>
+
+
+
 </body>
+
 </html>
+
+
+

@@ -206,7 +206,6 @@ button:hover:before, button:hover:after {
 }
 
 ul li a:hover{
-	text-decoration: underline;
 	font-size: 140%;
 	opacity: 1.0;
 	/* color: black; */
@@ -266,8 +265,8 @@ if(request.getParameter("pageNumber") != null){
 <ul class="fixbar">
     <img src="img/logo.png" align="left" />
     <li><a href="#"></a></li>
-    <li><a href="main.html">메인 페이지</a></li>
-    <li><a href="유형.html">동아리 조회</a></li>
+    <li><a href="main.jsp">메인 페이지</a></li>
+    <li><a href="club_search.jsp">동아리 조회</a></li>
     <li><a href="무형.html">게시판</a></li>
     <li><a href="생활.html">D</a></li>
     <li><a href="feedback.html">E</a></li>
