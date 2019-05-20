@@ -9,5 +9,12 @@
 - [studentSelect.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentSelect.jsp) : 회원 등록.
 - [club_SignUp_Form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_SignUp_Form.jsp) : 동아리 회원가입 양식.
 - [manager_Test.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manager_Test.jsp) : 동아리 관리자 페이지 (Test).
-
+- [write.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 쓰기 폼
+- [writeAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 쓸때 예외처리
+- [bbs.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/bbs.jsp) : 게시판 글 리스트
+- [update.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 수정
+- [updateAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 수정시 예외처리
+- [deleteAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 삭제 처리
+- [LoginAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 로그인 예외처리
+- [logoutAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 로그아웃 처리
 
