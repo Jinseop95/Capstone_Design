@@ -117,7 +117,7 @@ table.type09 thead th {
 }
 
 table.type09 tbody th {
-	width: 150px;
+	width: 180px;
 	padding: 10px;
 	font-weight: bold;
 	vertical-align: top;
@@ -414,9 +414,9 @@ ul li {
 							<form method="post" action="club_SignUp_Form.jsp" target="w"
 								onsubmit="return postPopUp();">
 								<th scope="col" colspan="4"><input type="text"
-									name="dong_nm" value=<%=vo.getClub_nm()%>> <input
-									type="submit" value="가입 신청" id="signUpBtn"
-									style="float: right;">
+									name="dong_nm" value=<%=vo.getClub_nm()%> readonly="readonly" style="border:none; 
+									outline: none; font-weight : bold; font-size : 20px;"> 
+									<input	type="submit" value="가입 신청" id="signUpBtn" style="float: right;">
 							</form>
 							</th>
 						</tr>

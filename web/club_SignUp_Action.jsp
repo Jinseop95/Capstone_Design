@@ -26,9 +26,8 @@
         } else {
         	out.print("<script>");
             out.print("alert('가입 신청을 완료했습니다.');");  
-            out.print("parent.close();");
+            out.print("window.opener.top.location.href='myInfo.jsp';");
             out.print("window.close();");
-            out.print("self.close();"); 
             out.print("</script>");
      }
  %>

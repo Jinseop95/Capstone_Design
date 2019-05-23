@@ -140,7 +140,7 @@ try {
         <td width="20%">학과<font>*</font></td>
         <td width="20%"><input type="text"  name="MAJOR" id="MAJOR"></td> 
         <td width="20%">학년<font>*</font></td>
-        <td width="20%"><input type="text"  name="GRADE" id="GRADE"></td>
+        <td width="20%"><input type="text"  name="GRADE" id="GRADE" placeholder=" ex) 1"></td>
     </tr>
     <tr>
         <td>학번<font>*</font></td>
@@ -157,7 +157,7 @@ try {
     </tr>
     <tr>
         <td>생년월일</td>
-        <td colspan="3"><input type="text" style="width:99%" name="BIRTH_DT" placeholder="  ex)  19951212"></td>    
+        <td colspan="3"><input type="text" style="width:99%" name="BIRTH_DT" id="BIRTH_DT" placeholder="  ex)  19951212"></td>    
     </tr>
     <tr>
         <td>전화번호<font>*</font></td>
@@ -210,9 +210,11 @@ function check_form(){
 	var ck_gender = document.getElementById("GENDER").value;
 	var ck_phone = document.getElementById("PHONE_NO").value;
 	var ck_apply = document.getElementById("apply").value;	
+	var ck_birth = document.getElementById("BIRTH_DT").value;
 	
 	var exp = /^[0-9]{1}$/;	//숫자만, 글자수 1
-	var exp1 = /^[0-9]+$/;	//숫자만, 전화번호 검증
+	var exp1 = /^[0-9]{9,13}$/;	//숫자만, 전화번호 검증
+	var exp2 = /^[0-9]{8}$/;	//숫자만, 글자수8
 	
 	if (ck_major.trim() == ""){
 		alert("학과를 입력해주세요");
@@ -253,6 +255,11 @@ function check_form(){
 		alert("학번을 정확하게 서명해주세요.");
 		document.getElementById("apply").focus();
 		return false;		
+	}
+	if(ck_birth.trim() != "" && !ck_birth.match(exp2)){
+		alert("생년월일 순으로 입력해주세요. \n 입력예) 19950101");
+		document.getElementById("BIRTH_DT").focus();
+		return false;
 	}
 
 }
