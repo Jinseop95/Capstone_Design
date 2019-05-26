@@ -10,7 +10,7 @@
 - [club_SignUp_Form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_SignUp_Form.jsp) : 동아리 회원가입 양식.
 - [manager_Test.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manager_Test.jsp) : 동아리 관리자 페이지 (Test).
 - [manager.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manager.jsp) : 동아리 관리자 페이지.
-- [join_cd_update.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/join_cd_update) : 동아리 가입 회원 승인 처리.
+- [join_cd_update.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/join_cd_update.jsp) : 동아리 가입 회원 승인 처리.
 - [write.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 쓰기 폼
 - [writeAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 쓸때 예외처리
 - [bbs.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/bbs.jsp) : 게시판 글 리스트
