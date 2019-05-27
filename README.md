@@ -19,6 +19,7 @@
    - [메뉴 설계](https://github.com/Jinseop95/Capstone_Design/blob/master/storyboard/%EC%82%BC%EB%B0%95%EC%9E%90_%EC%BA%A1%EC%8A%A4%ED%86%A4_%EB%A9%94%EB%89%B4%EC%84%A4%EA%B3%84_v2.xlsx)
 - [database](https://github.com/Jinseop95/Capstone_Design/tree/master/database)
   - Workbench를 활용한 DB 설계 [완료]
+  - 공통코드 설계 [완료]
 - [web](https://github.com/Jinseop95/Capstone_Design/tree/master/web)
   - 메인 페이지
        - 디자인 [구현중]       
