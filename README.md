@@ -14,6 +14,9 @@
  - 동아리 회원 관리 및 다양한 정보 서비스 제공 받을 수 있음.
 
 ## 진행 상황
+- [설계](https://github.com/Jinseop95/Capstone_Design/tree/master/storyboard)
+   - [화면세부설명서](https://github.com/Jinseop95/Capstone_Design/blob/master/storyboard/3%EB%B0%95%EC%9E%90_%ED%99%94%EB%A9%B4%EC%84%B8%EB%B6%80%EC%84%A4%EB%AA%85%EC%84%9C.pptx) 
+   - [메뉴 설계](https://github.com/Jinseop95/Capstone_Design/blob/master/storyboard/%EC%82%BC%EB%B0%95%EC%9E%90_%EC%BA%A1%EC%8A%A4%ED%86%A4_%EB%A9%94%EB%89%B4%EC%84%A4%EA%B3%84_v2.xlsx)
 - [database](https://github.com/Jinseop95/Capstone_Design/tree/master/database)
   - Workbench를 활용한 DB 설계 [완료]
 - [web](https://github.com/Jinseop95/Capstone_Design/tree/master/web)
@@ -64,5 +67,5 @@ database        데이터베이스
 web             웹 페이지(JSP, CSS 등) 소스 코드 
 meeting_notes   회의록
 Weekplan        주간 보고서
-stortboard      화면 및 메뉴 설계
+storboard      화면 및 메뉴 설계
 ```
