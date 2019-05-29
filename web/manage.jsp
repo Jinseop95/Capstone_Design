@@ -232,7 +232,7 @@ table.type04 td {
 	
 
 
-	<div class="mainLeft">
+	<div class="mainLeft"  style=" height:700px;">
 		<jsp:useBean id="dao" class="exam.jdbc.JDBC_clubDAO" />
 			
 			<%
@@ -268,7 +268,6 @@ table.type04 td {
 			<%
 				ArrayList<clubMemberVo> member_list = member_dao.getMember(club_id);
 			%>	
-			
 		<table class="type04" border = "1" >
 			<tr>
 				<th style="font-size: 20px; width:500px;">전공</th>
@@ -288,7 +287,7 @@ table.type04 td {
 				<td><%=cvo.getNM() %></td>
 				</tr>
 			<% }%>
-				
+
 			</table>
 	</div>
 
