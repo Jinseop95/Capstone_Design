@@ -8,8 +8,8 @@
 - [studentInsert.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentInsert.jsp) : 회원 가입 기능 처리.
 - [studentSelect.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/studentSelect.jsp) : 회원 등록.
 - [club_SignUp_Form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_SignUp_Form.jsp) : 동아리 회원가입 양식.
-- [manager_Test.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manager_Test.jsp) : 동아리 관리자 페이지 (Test).
-- [manage.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manage.jsp) : 동아리 관리자 페이지.
+- [manage.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manage.jsp) : 동아리 관리자 페이지 (동아리 가입 승인).
+- [manage_list.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/manage_list.jsp) : 동아리 관리자 페이지 (동아리 회원 목록).
 - [join_cd_update.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/join_cd_update.jsp) : 동아리 가입 회원 승인 처리.
 - [write.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 쓰기 폼
 - [writeAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 게시판 글 쓸때 예외처리
