@@ -52,13 +52,11 @@ margin-top:120px;
 }
 
 #right_side {
-	/*  background-color: goldenrod; */
 	width: 1%;
 }
 
 #footer {
 	height: 70px;
-	background-color: blue;
 	position: relatiev;
 	clear: both;
 }

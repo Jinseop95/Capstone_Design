@@ -8,6 +8,7 @@
 
 <%@page import="clubMember.clubMemberDAO"%>
 <%@page import="clubMember.clubMemberVo"%>
+<%@ page import="java.io.PrintWriter"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -141,6 +142,7 @@ table.type04 td {
 	padding: 10px;
 	min-height: 60%;
 	width: 15.5%;
+	margin-top: 7%;
 }
 .mainLeft {
 	border: 1px solid #ccc;
@@ -150,6 +152,7 @@ table.type04 td {
 	min-height: 75%;
 	width: 31%;
 	overflow: auto;
+	margin-top: 7%;
 }
 .mainRight {
 	border: 1px solid #ccc;
@@ -159,7 +162,17 @@ table.type04 td {
 	min-height: 75%;
 	width: 35%;
 	overflow: auto;
+	margin-top: 7%;
 }
+
+.type03 a{
+	text-decoration: none;
+}
+
+a:link { color: black; text-decoration: none;}
+a:active{ color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: black; text-decoration: underline;}
 </style>
 </head>
 <body>
@@ -168,6 +181,15 @@ table.type04 td {
 		if (session.getAttribute("username") != null) {
 			username = (String) session.getAttribute("username");
 		}
+		
+		if(username == null){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인을 하세요.')");
+			script.println("location.href = 'club_search.jsp'");
+			script.println("</script>");
+		}
+		
 		int row_index = 0; 
 		
 		
@@ -217,15 +239,14 @@ table.type04 td {
 			}
 		%>
 	</ul>
-	<br><br><br><br><br>
 	
 	<div id="left_side">
 		<table class="type03">
 			<tr>
-				<td>동아리 회원 승인</td>
+				<td><a href="manage.jsp">동아리 회원 승인</a></td>
 			</tr>
 			<tr>
-				<td>동아리 회원 관리</td>
+				<td><a href="manage_list.jsp">동아리 회원 관리</a></td>
 			</tr>
 		</table>
 	</div>
@@ -247,7 +268,7 @@ table.type04 td {
 		
 			<form method="get" action="manage.jsp">
 			<h3>관리 할 수 있는 동아리 목록 &nbsp;
-			<select name="club_id" id="club_id" onchange="club_post();;">
+			<select name="club_id" id="club_id" onchange="club_post();" style="font-size:20px; font-weight: bold;">
 				<% for (ClubVO vo : manage_list) { 
 				
 				%>
@@ -266,7 +287,7 @@ table.type04 td {
 			
 			<jsp:useBean id="member_dao" class="clubMember.clubMemberDAO" />
 			<%
-				ArrayList<clubMemberVo> member_list = member_dao.getMember(club_id);
+				ArrayList<clubMemberVo> member_list = member_dao.getMember(club_id,0);
 			%>	
 		<table class="type04" border = "1" >
 			<tr>
