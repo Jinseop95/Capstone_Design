@@ -235,6 +235,26 @@ ul {
 ul li {
 	display: inline;
 }
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:active {
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	text-decoration: underline;
+}
 </style>
 </head>
 

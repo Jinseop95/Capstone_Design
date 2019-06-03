@@ -28,7 +28,8 @@
    
         out.print("<script>");
         out.print("alert('가입을 축하드립니다.');");  
-        out.print("location.href='studentSelect.jsp';");        
+        out.print("window.opener.top.location.href='club_search.jsp';");
+		out.print("window.close();");       
         out.print("</script>");
      }else{
        

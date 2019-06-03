@@ -287,7 +287,7 @@ a:hover { color: black; text-decoration: underline;}
 			
 			<jsp:useBean id="member_dao" class="clubMember.clubMemberDAO" />
 			<%
-				ArrayList<clubMemberVo> member_list = member_dao.getMember(club_id,0);
+				ArrayList<clubMemberVo> member_list = member_dao.getMember(club_id,3);
 			%>	
 		<table class="type04" border = "1" >
 			<tr>
@@ -326,7 +326,7 @@ a:hover { color: black; text-decoration: underline;}
     </tr>
     <tr>
         <td>학번<font>*</font></td>
-        <td><input type="text" name="STUDENT_ID" readonly="readonly" value=<%= member_list.get(row_index).getSTUDENT_ID()%>></td>
+        <td><input type="text" name="student_id" readonly="readonly" value=<%= member_list.get(row_index).getSTUDENT_ID()%>></td>
        
         <td>성명<font>*</font></td>
         <td><input type="text" style="width:62%" name="NM" id="NM" value=<%= member_list.get(row_index).getNM()%> readonly="readonly" >
@@ -341,29 +341,29 @@ a:hover { color: black; text-decoration: underline;}
     </tr>
     <tr>
         <td>생년월일</td>
-        <td colspan="3"><input type="text" style="width:99%" name="BIRTH_DT" id="BIRTH_DT" value=<%= member_list.get(row_index).getBIRTH_DT()%> readonly="readonly"></td>    
+        <td colspan="3"><input type="text" style="width:99%" name="BIRTH_DT" id="BIRTH_DT" readonly="readonly" value=<%= member_list.get(row_index).getBIRTH_DT()%> ></td>    
     </tr>
     <tr>
         <td>전화번호<font>*</font></td>
-        <td colspan="3"><input type="text" style="width:99%" name="PHONE_NO" id="PHONE_NO" value=<%= member_list.get(row_index).getPHONE_NO()%> readonly="readonly"></td>    
+        <td colspan="3"><input type="text" style="width:99%" name="PHONE_NO" id="PHONE_NO" readonly="readonly" value=<%= member_list.get(row_index).getPHONE_NO()%> ></td>    
     </tr>
     <tr>
         <td>주소</td>
-        <td colspan="3"><input type="text" style="width:99%" name="ADDRESS" value=<%= member_list.get(row_index).getADDRESS()%> readonly="readonly"></td> 
+        <td colspan="3"><input type="text" style="width:99%" name="ADDRESS" readonly="readonly" value=<%= member_list.get(row_index).getADDRESS()%> ></td> 
     </tr>
     <tr>
         <td>E-mail</td>
-        <td colspan="3"><input type="text" style="width:99%" name="EMAIL" value=<%= member_list.get(row_index).getEMAIL()%> readonly="readonly"></td> 
+        <td colspan="3"><input type="text" style="width:99%" name="EMAIL" readonly="readonly" value=<%= member_list.get(row_index).getEMAIL()%> ></td> 
     </tr>
     
     <tr>
        <th><br>차      후<br>활동계획</th>
-        <td colspan="4" height="100px"><textarea style="width:99%; height:99%; resize: none" name="plan" readonly="readonly"><%= member_list.get(row_index).getPlan()%> </textarea></td> 
+        <td colspan="4" height="100px"><textarea style="width:99%; height:99%; resize: none" readonly="readonly" name="plan" ><%= member_list.get(row_index).getPlan()%> </textarea></td> 
     </tr>
     
     <tr>
        <th><br>바라는 점</th>
-        <td colspan="4" height="80px"><textarea style="width:99%; height:99%; resize: none" name="hope" readonly="readonly"><%= member_list.get(row_index).getHope()%></textarea></td> 
+        <td colspan="4" height="80px"><textarea style="width:99%; height:99%; resize: none" readonly="readonly" name="hope" ><%= member_list.get(row_index).getHope()%></textarea></td> 
     </tr>
 
 	</table>
@@ -387,7 +387,7 @@ a:hover { color: black; text-decoration: underline;}
 	
 	function club_post(){
 		var id = document.getElementById("club_id").value;
-		location.href="manage.jsp?club_id="+id+"&row_index=0";	//선택 값이 바뀌면 첫 행부터
+		location.href="manage.jsp?club_id="+id;	//선택 값이 바뀌면 첫 행부터
 	}
 
 	function getIndex(x){

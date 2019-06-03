@@ -17,11 +17,9 @@
 
 	<%
 	String submit_value = request.getParameter("submit");
-	String student_id = request.getParameter("STUDENT_ID");
-	int join_club = Integer.parseInt(request.getParameter("join_club"));
-	
+	String student_id = request.getParameter("student_id");
+	int join_club = Integer.parseInt(request.getParameter("join_club"));	
 	clubMemberDAO dao = new clubMemberDAO();
-
 	
 	if (submit_value.equals("승인")){
 		int result = dao.update(join_club, student_id);
@@ -44,6 +42,17 @@
 		}else{
 			out.println("<script>");
 			out.print("alert('승인 거부 하였습니다.');"); 
+			out.println("</script>");
+		}
+	}else if(submit_value.equals("제명")){
+		int result = dao.delete(join_club, student_id);
+		if(result == -1){
+			out.println("<script>");
+			out.print("alert('다시 시도해주세요.');"); 
+			out.println("</script>");
+		}else{
+			out.println("<script>");
+			out.print("alert('제명하였습니다.');"); 
 			out.println("</script>");
 		}
 	}else{
