@@ -72,6 +72,15 @@
 
 		}
 
+		
+String bbscd="";
+		
+		if (request.getParameter("BOARD_CD") != null) {
+
+			bbscd = request.getParameter("BOARD_CD");
+
+		}
+		
 		if (BOARD_NO == 0) {
 
 			PrintWriter script = response.getWriter();
@@ -86,7 +95,7 @@
 
 		}
 
-		Bbs bbs = new BbsDAO().getBbs(BOARD_NO);
+		Bbs bbs = new BbsDAO().getBbs(BOARD_NO,bbscd);
 
 		if (!userID.equals(bbs.getINPUT_ID())) {
 
@@ -180,11 +189,7 @@
 
 						<tr>
 
-							<th colspan="2"
-
-								style="background-color: #eeeeee; text-align: center;">글
-
-								수정 </th>
+							<th colspan="2" style="background-color: #eeeeee; text-align: center; width:1500px;">글수정 </th>
 
 						</tr>
 
@@ -194,13 +199,13 @@
 
 						<tr>
 
-							<td><input type="text" class="form-control" placeholder="글 제목" name="TITLE" maxlength="50" value="<%= bbs.getTITLE()%>" ></td>
+							<td style="width:100%;"><input type="text" class="form-control" placeholder="글 제목" name="TITLE" maxlength="50" value="<%= bbs.getTITLE()%>" ></td>
 
 						</tr>
 
 						<tr>
 
-							<td><textarea class="form-control" placeholder="글 내용" name="CONTENTS" maxlength="2048" style="height: 350px;" ><%= bbs.getCONTENTS() %></textarea></td>
+							<td><textarea class="form-control" placeholder="글 내용" name="CONTENTS" maxlength="2048" style="height: 350px; width:100%;" ><%= bbs.getCONTENTS() %></textarea></td>
 
 						</tr>
 

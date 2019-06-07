@@ -51,7 +51,17 @@
 			bbsID = Integer.parseInt(request.getParameter("BOARD_NO"));
 
 		}
+		
+		
+		String bbscd="";
+		
+		if (request.getParameter("BOARD_CD") != null) {
 
+			bbscd = request.getParameter("BOARD_CD");
+
+		}
+		
+		
 		if (bbsID == 0) {
 
 			PrintWriter script = response.getWriter();
@@ -66,7 +76,9 @@
 
 		}
 
-		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		Bbs bbs = new BbsDAO().getBbs(bbsID,bbscd);
+		
+		
 
 	%>
 
@@ -178,7 +190,7 @@
 
 				<table class="table table-striped"
 
-					style="text-align: center; border: 1px solid #dddddd">
+					style="text-align: center; border: 1px solid #dddddd; marign:auto;">
 
 					<thead>
 
@@ -218,6 +230,10 @@
 
 							+ bbs.getINPUT_DATE().substring(14, 16) + "분"%></td>
 
+						</tr>
+						<tr>
+							<td>조회수</td>
+							<td colspan="2"><%= bbs.getOPEN_CNT() %></td>
 						</tr>
 
 						<tr>

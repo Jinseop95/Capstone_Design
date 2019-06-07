@@ -1,60 +1,107 @@
 <%@page import="javax.security.auth.callback.ConfirmationCallback"%>
 
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-		pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%>
 
-	<%@ page import="java.io.PrintWriter"%>
+<%@ page import="bbs.BbsDAO"%>
 
-	<%@ page import="bbs.BbsDAO"%>
+<%@ page import="bbs.Bbs"%>
 
-	<%@ page import="bbs.Bbs"%>
+<%@ page import="java.util.ArrayList"%>
 
-	<%@ page import="java.util.ArrayList"%>
+<!DOCTYPE html>
 
-	<!DOCTYPE html>
+<html>
 
-	<html>
+<head>
 
-	<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 뷰포트 -->
 
-	<!-- 뷰포트 -->
+<meta name="viewport" content="width=device-width" initial-scale="1">
 
-	<meta name="viewport" content="width=device-width" initial-scale="1">
+<!-- 스타일시트 참조  -->
 
-	<!-- 스타일시트 참조  -->
+<link rel="stylesheet" href="css/bootstrap.css">
 
-	<link rel="stylesheet" href="css/bootstrap.css">
+<title>jsp 게시판 웹사이트</title>
 
-	<title>jsp 게시판 웹사이트</title>
+<style type="text/css">
+a, a:hover {
+	color: #000000;
+	text-decoration: none;
+}
 
-	<style type="text/css">
+.fixbar {
+	margin: auto;
+	padding: 0px;
+	list-style: none;
+	position: fixed;
+	width: 100%;
+	text-align: left;
+	background-color: #114f7d;
+	z-index: 9999;
+}
 
-		a, a:hover {
+.fixbar li {
+	display: inline-block;
+}
 
-			color: #000000;
+.fixbar li a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 27px 40px;
+	display: block;
+}
 
-			text-decoration: none;
+.fixbar .login {
+	position: absolute;
+	height: 100%;
+	top: 50%;
+	right: 10%;
+	z-index: 9999;
+	border-radius: 10px;
+	float: left;
+	text-align: center;
+	font-size: 15px;
+	color: white;;
+}
 
-		}
+.fixbar .login a {
+	color: white;
+	opacity: 1.0;
+	/* text-decoration: non: ;e; */
+	font-weight: bold;
+	font-size: 15px;
+}
 
-	</style>
+ul li a:hover {
+	font-size: 140%;
+	opacity: 1.0;
+	/* color: black; */
+}
+</style>
 
-	</head>
+</head>
 
-	<body>
-
-		<%
+<body>
+<%request.setCharacterEncoding("UTF-8");%>
+		
+		
+	<%
 
 			//로긴한사람이라면	 userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
 
-			String userID = null;
+			String username = null;
 
 			if (session.getAttribute("username") != null) {
 
-				userID = (String) session.getAttribute("username");
+				username = (String) session.getAttribute("username");
 
 	
 
@@ -76,140 +123,168 @@
 
 		%>
 
-	
 
-	
+	<ul class="fixbar">
+		<img src="img/logo.png" align="left" />
+		<li><a href="#"></a></li>
+		<li><a href="main.jsp">메인 페이지</a></li>
+		<li><a href="club_search.jsp">동아리 조회</a></li>
+		<li><a href="무형.html">게시판</a></li>
+		<li><a href="생활.html">D</a></li>
+		<li><a href="feedback.html">E</a></li>
+		<%
+   if(username==null){   
+   %>
+		<div class="login">
+			<form method="post" action="LoginAction.jsp">
+				<input type="text" name="username"
+					style="width: 130px; height: 30px;" onfocus="this.select()">
+				<input type="passWord" name="password"
+					style="width: 130px; height: 30px;" onfocus="this.select()">
+				<input type="submit" value="로그인 "> <a href='#'
+					onclick='javascript:window.open("signUp.jsp","name99", "width=720px,height=720px");'>회원가입</a>
+			</form>
+		</div>
+		<%
+   } else{
+   %>
+		<div class="login">
+			<%
+               out.print((String)session.getAttribute("username")+" 님 어서오세요.");
+            %>
+			<a href='logoutAction.jsp'>로그아웃</a> <a href='myInfo.jsp'>| 나의 정보</a>
+			</li>
+			</form>
+		</div>
+		<%
+   
+   }%>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
-		<!-- 네비게이션  -->
+	<!-- 네비게이션  -->
 
-		<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default">
 
-			<div class="navbar-header">
+		<div class="navbar-header">
 
-				<button type="button" class="navbar-toggle collapsed"
 
-					data-toggle="collapse" data-target="bs-example-navbar-collapse-1"
 
-					aria-expaned="false">
+			
 
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+		</div>
 
-						class="icon-bar"></span>
+		<div class="collapse navbar-collapse"
+			id="#bs-example-navbar-collapse-1">
 
-				</button>
+			<ul class="nav navbar-nav">
 
-				<a class="navbar-brand" href="main.jsp">JSP 게시판</a>
+				<li><a href="main.jsp">메인</a></li>
 
-			</div>
+				<li class="active"><a href="bbs.jsp">게시판</a></li>
 
-			<div class="collapse navbar-collapse"
+			</ul>
 
-				id="#bs-example-navbar-collapse-1">
 
-				<ul class="nav navbar-nav">
 
-					<li><a href="main.jsp">메인</a></li>
 
-					<li class="active"><a href="bbs.jsp">게시판</a></li>
 
-				</ul>
-
-	
-
-	
-
-				<%
+			<%
 
 					//라긴안된경우
 
-					if (userID == null) {
+					if (username == null) {
 
 				%>
 
-				<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right">
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">접속하기<span class="caret"></span></a>
 
-						data-toggle="dropdown" role="button" aria-haspopup="true"
+					<ul class="dropdown-menu">
 
-						aria-expanded="false">접속하기<span class="caret"></span></a>
+						<li><a href="login.jsp">로그인</a></li>
 
-						<ul class="dropdown-menu">
+						<li><a href="join.jsp">회원가입</a></li>
 
-							<li><a href="login.jsp">로그인</a></li>
+					</ul></li>
 
-							<li><a href="join.jsp">회원가입</a></li>
+			</ul>
 
-						</ul></li>
-
-				</ul>
-
-				<%
+			<%
 
 					} else {
 
 				%>
 
-				<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right">
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">회원관리<span class="caret"></span></a>
 
-						data-toggle="dropdown" role="button" aria-haspopup="true"
+					<ul class="dropdown-menu">
 
-						aria-expanded="false">회원관리<span class="caret"></span></a>
+						<li><a href="logoutAction.jsp">로그아웃</a></li>
 
-						<ul class="dropdown-menu">
+					</ul></li>
 
-							<li><a href="logoutAction.jsp">로그아웃</a></li>
+			</ul>
 
-						</ul></li>
-
-				</ul>
-
-				<%
+			<%
 
 					}
 
 				%>
 
-			</div>
+		</div>
 
-		</nav>
+	</nav>
 
-		<!-- 게시판 -->
+	<!-- 게시판 -->
 
-		<div class="container">
+	<div class="container">
 
-			<div class="row">
+		<div class="row">
 
-				<table class="table table-striped"
+			<table class="table table-striped"
+				style="text-align: center; border: 1px solid #dddddd; margin:auoto;">
 
-					style="text-align: center; border: 1px solid #dddddd">
+				<thead>
 
-					<thead>
+					<tr>
 
-						<tr>
+						<th style="background-color: #eeeeee; text-align: center;">번호</th>
 
-							<th style="background-color: #eeeeee; text-align: center;">번호</th>
+						<th style="background-color: #eeeeee; text-align: center;">제목</th>
 
-							<th style="background-color: #eeeeee; text-align: center;">제목</th>
-							
-							<th style="background-color: #eeeeee; text-align: center;">분류</th>
+						<th style="background-color: #eeeeee; text-align: center;">분류</th>
 
-							<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
 
-							<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-							
-							
+						<th style="background-color: #eeeeee; text-align: center;">작성일</th>
 
-						</tr>
+						<th style="background-color: #eeeeee; text-align: center;">조회수</th>
 
-					</thead>
 
-					<tbody>
-	
 
-						<%
+					</tr>
+
+				</thead>
+
+
+				<tbody>
+
+
+					<%
 
 							BbsDAO bbsDAO = new BbsDAO();
 
@@ -220,76 +295,87 @@
 							
 						%>
 
-						<tr>
 
-							<td><%=list.get(i).getBOARD_NO()%></td>
+<!-- <script language="javascript">
 
-							<td><a href="view.jsp?BOARD_NO=<%=list.get(i).getBOARD_NO()%>"><%=list.get(i).getTITLE()%></a></td>
-							
-							<td><%=list.get(i).getBoard_cd() %></td>
-							
-							<td><%=list.get(i).getINPUT_ID() %></td>
-							
+	var hi=0;
+    function OK2()
+    {    
+    	
+        hi++;
+        alert(hi);
+        
+    }
+\
+</script> -->
 
-							<td><%=list.get(i).getINPUT_DATE().substring(0, 11) + list.get(i).getINPUT_DATE().substring(11, 13) + "시"
+
+					<tr>
+
+						<td><%=list.get(i).getBOARD_NO()%></td>
+
+						<td><a href="view.jsp?BOARD_NO=<%=list.get(i).getBOARD_NO()%>"><%=list.get(i).getTITLE()%></a></td>
+
+						<td><%=list.get(i).getBoard_cd() %></td>
+
+						<td><%=list.get(i).getINPUT_ID() %></td>
+
+
+						<td><%=list.get(i).getINPUT_DATE().substring(0, 11) + list.get(i).getINPUT_DATE().substring(11, 13) + "시"
 
 							+ list.get(i).getINPUT_DATE().substring(14, 16) + "분"%></td>
-							
-							
-							
-						</tr>
-						
-						
 
-	
+						<td><%=list.get(i).getOPEN_CNT() %></td>
 
-						<%
+					</tr>
+
+
+
+
+
+					<%
 
 							}
 
 						%>
 
-	
 
-					</tbody>
 
-				</table>
+				</tbody>
 
-				<!-- 페이지 넘기기 -->
+			</table>
 
-				<%
+			<!-- 페이지 넘기기 -->
+
+			<%
 
 					if (pageNumber != 1) {
 
 				%>
 
-				<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>"
+			<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-success btn-arrow-left">이전</a>
 
-					class="btn btn-success btn-arrow-left">이전</a>
-
-				<%
+			<%
 
 					}
 
-					if (bbsDAO.nextPage(pageNumber)) {
-
+					 if (bbsDAO.nextPage(pageNumber)) { 
+					
 				%>
 
-				<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>"
+			<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>" class="btn btn-success btn-arrow-left">다음</a>
 
-					class="btn btn-success btn-arrow-left">다음</a>
-
-				<%
+			<%
 
 					}
 
 				%>
 
-	
 
-	
 
-				<!-- 회원만넘어가도록 -->
+
+
+			<!-- 회원만넘어가도록 -->
 
 			<%
 
@@ -297,52 +383,50 @@
 
 					if (session.getAttribute("username") != null) {
 
-				%> 
+				%>
 
-				 <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-
-				<%
+			<!-- <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a> -->
+<a href="write.jsp"  class="btn btn-primary pull-right" onclick="window.open('write.jsp','index','width=300, height=200'">글쓰기</a>
+			<%
 
 					} else {
 
-				%> 
+				%>
 
-				<button class="btn btn-primary pull-right"
+			<button class="btn btn-primary pull-right"
+				onclick="if(confirm('로그인 하세요'))location.href='main.jsp';"
+				type="button">글쓰기</button>
 
-					onclick="if(confirm('로그인 하세요'))location.href='main.jsp';"
-
-					type="button">글쓰기</button>
-
-				<%
+			<%
 
 					}
 
-				%> 
+				%>
 
-	
 
-			</div>
 
 		</div>
 
-	
+	</div>
 
-	
 
-	
 
-	
 
-		<!-- 애니매이션 담당 JQUERY -->
 
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-		<!-- 부트스트랩 JS  -->
 
-		<script src="js/bootstrap.js"></script>
 
-	
 
-	</body>
+	<!-- 애니매이션 담당 JQUERY -->
 
-	</html>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<!-- 부트스트랩 JS  -->
+
+	<script src="js/bootstrap.js"></script>
+
+
+
+</body>
+
+</html>
