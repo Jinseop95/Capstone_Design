@@ -23,6 +23,6 @@
 - [logoutAction.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/write.jsp) : 로그아웃 처리 
 - [myInfo.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/myInfo.jsp) : 나의 정보 
 - [jido.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/jido.jsp) : 학교 주변 음식점 안내
-- [club_code.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_code.jsp) : 동아리별 포스터 
+- [club_code.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_code.jsp) : 동아리별 포스터 안내
 
 
