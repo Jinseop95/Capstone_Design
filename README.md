@@ -62,6 +62,12 @@
   - [2019.05.11](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_11.md)
   - [2019.05.14](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_14.md)
   - [2019.05.17](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_17.md)
+  - [2019.05.20](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_20.md)
+  - [2019.05.24](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_24.md)
+  - [2019.05.27](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_05_27.md)
+  - [2019.06.01](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_06_01.md)
+  - [2019.06.04](https://github.com/Jinseop95/Capstone_Design/blob/master/meeting_notes/2019_06_04.md)
+  
   
 
 ## 디렉토리 구조
