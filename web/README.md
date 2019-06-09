@@ -12,8 +12,8 @@
   
 - 동아리 검색 
   - [club_search.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_search.jsp) : 동아리 검색
-  - [club_SignUp_Form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_SignUp_Form.jsp) : 동아리 가입 신 양식
-
+  - [club_SignUp_Form.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_SignUp_Form.jsp) : 동아리 가입 신청 양식
+    
 - 동아리 홍보 포스터
   - [club_code.jsp](https://github.com/Jinseop95/Capstone_Design/blob/master/web/club_code.jsp) : 동아리별 포스터 안내
   
