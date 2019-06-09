@@ -22,7 +22,8 @@
 		String user_name = request.getParameter("user_name");
 
 		clubMemberDAO dao = new clubMemberDAO();
-
+		String url = "manage_list.jsp?club_id=" + club_id;
+		
 		if (staff_cd == "")
 			staff_cd = null;
 	%>
@@ -36,7 +37,7 @@
 			} else {
 				out.print("<script>");
 				out.print("alert('변경되었습니다.');");
-				out.print("window.opener.top.location.href='manage_list.jsp';");
+				out.print("window.opener.top.location.href='" +url +"';");
 				out.print("window.close();");
 				out.print("</script>");
 			}
@@ -50,7 +51,7 @@
 			} else {
 				out.print("<script>");
 				out.print("alert('변경되었습니다.');");
-				out.print("window.opener.top.location.href='manage_list.jsp';");
+				out.print("window.opener.top.location.href='" +url +"';");
 				out.print("window.close();");
 				out.print("</script>");
 			}

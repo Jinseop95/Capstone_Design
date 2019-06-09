@@ -1,16 +1,19 @@
 
+<%@page import="java.util.List"%>
 <%@page import="sun.security.krb5.internal.PAEncTSEnc"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="exam.jdbc.ClubVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="exam.jdbc.JDBC_clubDAO"%>
+<%@page import="Student.StudentDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 	import="java.sql.DriverManager,
                    java.sql.Connection,
                    java.sql.Statement,
                    java.sql.ResultSet,
-                   java.sql.SQLException"%>
+                   java.sql.SQLException,
+                   java.util.Arrays"%>
 
 <!DOCTYPE html>
 <html>
@@ -255,7 +258,11 @@ a:hover {
 	color: black;
 	text-decoration: underline;
 }
+
+#goright{
+margin-left:78%;}
 </style>
+
 </head>
 
 <body>
@@ -273,7 +280,7 @@ a:hover {
 		String club_at_cd = ""; //클럽 속성(학술,운동)
 		String search = "";
 		int pageNumber = 1; //현재 페이지 번호
-
+		
 		if (request.getParameter("club_gb_cd") != null) {
 			club_gb_cd = request.getParameter("club_gb_cd");
 		}
@@ -290,6 +297,7 @@ a:hover {
 				System.out.println("검색 페이지 번호 오류");
 			}
 		}
+
 	%>
 
 
@@ -391,9 +399,14 @@ a:hover {
 			</form>
 
 			<jsp:useBean id="dao" class="exam.jdbc.JDBC_clubDAO" />
-
+			<jsp:useBean id="student_dao" class="Student.StudentDAO" />
+			
 
 			<%
+			
+				String[] stateList = student_dao.getState(username);
+				
+			
 				ArrayList<ClubVO> gb_list = dao.getClublist(club_gb_cd, search, club_at_cd, pageNumber);
 				int totalcount = 0;
 
@@ -416,7 +429,7 @@ a:hover {
 			<%
 				}
 			%>
-
+		
 			<%
 				for (ClubVO vo : gb_list) {
 			%>
@@ -433,9 +446,32 @@ a:hover {
 								onsubmit="return postPopUp();">
 								<th scope="col" colspan="4"><input type="text"
 									name="dong_nm" value=<%=vo.getClub_nm()%> readonly="readonly" style="border:none; 
-									outline: none; font-weight : bold; font-size : 20px;"> 
-									<input	type="submit" value="가입 신청" id="signUpBtn" style="float: right;">
+									outline:none; font-weight : bold; font-size : 20px;"> 
+									<%
+									if(stateList!=null){
+										if( Arrays.asList(stateList).contains( Integer.toString( vo.getClub_id() ) ) ){%>
+										<input name="submit" type="image" src="img/star1.png" width="30" height="30" >
+										<input type="hidden" name="hidden_name" value="1">
+									
+									<%}else{%>
+										<input name="submit" type="image" src="img/star0.png" width="30" height="30" >
+										<input type="hidden" name="hidden_name" value="0">
+									<% }
+									}else{%>
+											<input name="submit" type="image" src="img/star0.png" width="30" height="30" >
+											<input type="hidden" name="hidden_name" value="0">
+										<%}%>
+									
+									<input type="hidden" name="hidden_state" value=<%=vo.getClub_id()%>>
+									<input	name="submit" type="submit" value="가입 신청" id="signUpBtn" style="float: right; background-color:white; border:1px solid lightblue;">
 							</form>
+							
+							<div id=goright style="clear:right;">
+                     <form method="post" action="club_code.jsp">
+                     <input type="text" name ="hello" value=<%=vo.getClub_nm()%> style="display:none";>
+                     <input type="submit" value="동아리 상세조회" style="clear: right; background-color:white; border:1px solid lightblue;">
+                     </form>
+                     </div>
 							</th>
 						</tr>
 						<script>
@@ -444,9 +480,8 @@ a:hover {
 							alert("로그인이 필요합니다.");
 								return false;
 						<%} else {%>
-							window
-										.open('', 'w',
-												'width=900,height=650,location=no,status=no');
+							
+						window.open('', 'w','width=900,height=650,location=no,status=no');
 								return true;
 						<%}%>
 							}
@@ -569,6 +604,8 @@ a:hover {
 					}
 
 				}
+
+			
 			</script>
 
 			<%

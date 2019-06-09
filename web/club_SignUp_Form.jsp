@@ -73,28 +73,54 @@
 
 </head>
 <body>
+
+<%request.setCharacterEncoding("UTF-8");%>
+<jsp:useBean id="CM_dao" class="clubMember.clubMemberDAO"/>
+<jsp:useBean id="student_dao" class="Student.StudentDAO"/>
+<jsp:useBean id="club_dao" class="exam.jdbc.JDBC_clubDAO"/>
 <%
       String username = null;
       if (session.getAttribute("username") != null) {
          username = (String) session.getAttribute("username");
       }
-   %>
-   
-<%
-response.setContentType("text/html;charset=utf-8;");
-request.setCharacterEncoding("utf-8");     //charset, Encoding 설정
-Class.forName("com.mysql.jdbc.Driver");    // load the drive
-String DB_URL = "jdbc:mysql://localhost/mydb";
-               // 주의 : test by changing mydb to name that you make
-String DB_USER = "root";
-String DB_PASSWORD= "2865";
-Connection conn= null;
-Statement stmt = null;
-ResultSet rs   = null; 
+      String submit_value = "aa";
+      if(request.getParameter("submit")!=null)
+    	  submit_value=request.getParameter("submit");
+      
+      if (submit_value.equals("가입 신청")){
+		  
+	  
+      String value  = request.getParameter("dong_nm");
+      int check = CM_dao.overlapCheck(username, value);      
+      
+      if(check==0){
+         out.print("<script>");
+         out.print("self.close();");
+           out.print("alert('이미 가입신청 한 동아리 입니다. 나의 정보 페이지를 확인해주세요.');");  
+           out.print("</script>"); 
+      }else if(check==1){
+         out.print("<script>");
+         out.print("self.close();");
+           out.print("alert('이미 가입한 동아리 입니다. 나의 정보 페이지를 확인해주세요.');");            
+           out.print("</script>"); 
+      }else if(check==2){
+      
+      response.setContentType("text/html;charset=utf-8;");
+      request.setCharacterEncoding("utf-8");     //charset, Encoding 설정
+      Class.forName("com.mysql.jdbc.Driver");    // load the drive
+      String DB_URL = "jdbc:mysql://localhost/mydb";
+                     // 주의 : test by changing mydb to name that you make
+      String DB_USER = "root";
+      String DB_PASSWORD= "2865";
+      Connection conn= null;
+      Statement stmt = null;
+      ResultSet rs   = null;
+      
+      
 
 try {
     conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-    String value  = request.getParameter("dong_nm");
+    value  = request.getParameter("dong_nm");
     out.println("<script>alert("+value+");</script>");
     %>
 
@@ -264,6 +290,36 @@ function check_form(){
 
 }
 </script>
+<%}}
+      else{
+    	  int hidden_state = Integer.parseInt(request.getParameter("hidden_state"));	//클럽ID
+    	  int result ;
+    	  
+    	  String hidden_name = request.getParameter("hidden_name");	//상태 0,1
+    	  
+    	  result = club_dao.addsub_prefer(hidden_state,hidden_name);
+    	  
+    	  if(hidden_name.equals("0")){
+    		  result = student_dao.writeState(username, hidden_state);
+    		  out.print("<script>");
+        	  out.print("window.resizeTo(500,200);");
+        	  out.print("window.opener.location.reload();");
+              out.print("self.close();");
+              out.print("alert('해당동아리에 좋아요를 표시하였습니다.');");  
+              out.print("</script>"); 
+    	  }else{
+    		  result = student_dao.removeState(username, hidden_state);
+    		  out.print("<script>");
+        	  out.print("window.resizeTo(500,200);");
+        	  out.print("window.opener.location.reload();");
+              out.print("self.close();");
+              out.print("alert('해당동아리에 좋아요를 취소하였습니다.');");  
+              out.print("</script>"); 
+    	  }
+    	  
+    	  
+      }
+%>
 
 
 </body>

@@ -257,14 +257,23 @@ a:hover { color: black; text-decoration: underline;}
 		<jsp:useBean id="dao" class="exam.jdbc.JDBC_clubDAO" />
 			
 			<%
-				ArrayList<ClubVO> manage_list = dao.getManageClub(username);
-
-				int club_id = manage_list.get(0).getClub_id();
+			
+			ArrayList<ClubVO> manage_list = dao.getManageClub(username);
+			if (manage_list.isEmpty()){
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('권한이 없습니다.')");
+				script.println("location.href = 'club_search.jsp'");
+				script.println("</script>");
+			}
 				
-				if (request.getParameter("club_id") != null) {
-					club_id = Integer.parseInt(request.getParameter("club_id"));
-				}
-			%>
+			else{
+			int club_id = manage_list.get(0).getClub_id();
+
+			if (request.getParameter("club_id") != null) {
+				club_id = Integer.parseInt(request.getParameter("club_id"));
+			}
+		%>
 		
 			<form method="get" action="manage.jsp">
 			<h3>관리 할 수 있는 동아리 목록 &nbsp;
@@ -398,5 +407,6 @@ a:hover { color: black; text-decoration: underline;}
 	}
 	
 	</script>
+	<%} %>
 </body>
 </html>

@@ -1,230 +1,323 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import = "clubMember.clubMemberDAO" %>
+<%@ page import = "java.io.PrintWriter" %>
+<%@ page import = "java.util.*" %>
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
 html, body {
-	width: 100%;
-	height: 100%;
+   width: 100%;
+   height: 100%;
 }
 
 .fixbar {
-	margin: auto;
-	padding: 0px;
-	list-style: none;
-	position: fixed;
-	width: 100%;
-	text-align: left;
-	background-color: #114f7d;
+   margin: auto;
+   padding: 0px;
+   list-style: none;
+   position: fixed;
+   width: 100%;
+   text-align: left;
+   background-color: #114f7d;
 }
 
 .fixbar li {
-	display: inline-block;
+   display: inline-block;
 }
 
 .fixbar li a {
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 20px;
-	padding: 27px 40px;
-	display: block;
+   color: white;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 20px;
+   padding: 27px 40px;
+   display: block;
 }
 
 .fixbar .login {
-	position: absolute;
-	height: 100%;
-	top: 50%;
-	right: 10%;
-	z-index: 9999;
-	border-radius: 10px;
-	float: left;
-	text-align: center;
-	font-size: 15px;
-	color: white;
+   position: absolute;
+   height: 100%;
+   top: 50%;
+   right: 10%;
+   z-index: 9999;
+   border-radius: 10px;
+   float: left;
+   text-align: center;
+   font-size: 15px;
+   color: white;
 }
 
 .fixbar .login a {
-	color: white;
-	opacity: 1.0;
-	/* text-decoration: non: ;e; */
-	font-weight: bold;
-	font-size: 15px;
+   color: white;
+   opacity: 1.0;
+   /* text-decoration: non: ;e; */
+   font-weight: bold;
+   font-size: 15px;
 }
 
 table.type03 {
-	border-collapse: collapse;
-	text-align: center;
-	line-height: 1.5;
-	border-top: 1px solid #ccc;
-	border-left: 20px solid #369;
-	margin: auto;
-	text-align: center;
-	width: 100%;
-	font-size: 30px;
+   border-collapse: collapse;
+   text-align: center;
+   line-height: 1.5;
+   border-top: 1px solid #ccc;
+   border-left: 20px solid #369;
+   margin: auto;
+   text-align: center;
+   width: 100%;
+   font-size: 30px;
 }
 
 table.type03 th {
-	padding: 3px;
-	font-weight: bold;
-	vertical-align: top;
-	color: #153d73;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+   padding: 3px;
+   font-weight: bold;
+   vertical-align: top;
+   color: #153d73;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
 }
 
 table.type03 td {
-	padding: 3px;
-	vertical-align: top;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+   padding: 3px;
+   vertical-align: top;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
 }
 
 table.type04 {
-	border-collapse: collapse;
-	text-align: center;
-	line-height: 1.5;
-	border-left: 1px solid #ccc;
-	border-top: 20px solid #369;
-	margin: auto;
-	text-align: center;
-	width: 100%;
-	font-size: 25px;
+   border-collapse: collapse;
+   text-align: center;
+   line-height: 1.5;
+   border-left: 1px solid #ccc;
+   border-top: 20px solid #369;
+   margin: auto;
+   text-align: center;
+   width: 100%;
+   font-size: 25px;
 }
 
 table.type04 th {
-	padding: 3px;
-	font-weight: bold;
-	vertical-align: top;
-	color: #153d73;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+   padding: 3px;
+   font-weight: bold;
+   vertical-align: top;
+   color: #153d73;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
 }
 
 table.type04 td {
-	padding: 3px;
-	vertical-align: top;
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+   padding: 3px;
+   vertical-align: top;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
 }
 
 #left_side {
-	float: left;
-	margin: 5px;
-	margin-left: 3%;
-	padding: 10px;
-	min-height: 60%;
-	width: 18.5%;
+   float: left;
+   margin: 5px;
+   margin-left: 3%;
+   padding: 10px;
+   min-height: 60%;
+   width: 18.5%;
 }
 
 .mainLeft {
-	border: 1px solid #ccc;
-	float: left;
-	margin-left: 3%;
-	padding: 10px;
-	min-height: 75%;
-	width: 31%;
-	overflow: auto;
+   border: 1px solid #ccc;
+   float: left;
+   margin-left: 3%;
+   padding: 10px;
+   min-height: 75%;
+   width: 31%;
+   overflow: auto;
 }
 
 .mainRight {
-	border: 1px solid #ccc;
-	float: left;
-	margin-left: 3%;
-	padding: 10px;
-	min-height: 75%;
-	width: 31%;
-	overflow: auto;
+   border: 1px solid #ccc;
+   float: left;
+   margin-left: 3%;
+   padding: 10px;
+   min-height: 75%;
+   width: 31%;
+   overflow: auto;
 }
+
+table.type099 {
+   border-collapse: collapse;
+   text-align: center;
+   line-height: 1.5;
+   border-top: 1px solid #ccc;
+   border-left: 20px solid #369;
+   margin: auto;
+   text-align: center;
+   width: 100%;
+   font-size: 30px;
+}
+
+table.type099 th {
+   padding: 10px;
+   font-weight: bold;
+   vertical-align: top;
+   color: #153d73;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+}
+
+table.type099 td {
+   padding: 0px;
+   vertical-align: top;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+}
+
+
 </style>
 </head>
 <body>
-	<%
-		String username = null;
-		if (session.getAttribute("username") != null) {
-			username = (String) session.getAttribute("username");
-		}
-	%>.
+   <%
+      String username = null;
+      if (session.getAttribute("username") != null) {
+         username = (String) session.getAttribute("username");
+      }
+      clubMemberDAO clubMember = new clubMemberDAO();
+   %>
 
-	<ul class="fixbar">
-		<img src="img/logo.png" align="left" />
-		<li><a href="#"></a></li>
-		<li><a href="main.html">∏ﬁ¿Œ ∆‰¿Ã¡ˆ</a></li>
-		<li><a href="¿Ø«¸.html">µøæ∆∏Æ ¡∂»∏</a></li>
-		<li><a href="π´«¸.html">∞‘Ω√∆«</a></li>
-		<li><a href="ª˝»∞.html">D</a></li>
-		<li><a href="feedback.html">E</a></li>
-		<%
-			if (username == null) {
-		%>
-		<div class="login">
-			<form method="post" action="LoginAction.jsp">
-				<input type="text" name="username"
-					style="width: 130px; height: 30px;"> <input type="passWord"
-					name="password" style="width: 130px; height: 30px;"> <input
-					type="submit" value="∑Œ±◊¿Œ "> <a href='#'
-					onclick='javascript:window.open("signUp.jsp","name99", "width=720px,height=720px");'>»∏ø¯∞°¿‘</a>
-			</form>
-		</div>
-		<%
-			} else {
-		%>
-		<div class="login">
-			<%
-				out.print((String) session.getAttribute("username") + " ¥‘ æÓº≠ø¿ººø‰.");
-			%>
-			<a href='logoutAction.jsp'>∑Œ±◊æ∆øÙ</a> <a href='myInfo.jsp'>| ≥™¿« ¡§∫∏</a>
-			</li>
-			</form>
-		</div>
-		<%
-			}
-		%>
-	</ul>
-	<br>
-	<br>
-	<br>
-	<br>
+   <ul class="fixbar">
+      <img src="img/logo.png" align="left" />
+      <li><a href="#"></a></li>
+      <li><a href="main.jsp">Î©îÏù∏ ÌéòÏù¥ÏßÄ</a></li>
+      <li><a href="Ïú†Ìòï.html">ÎèôÏïÑÎ¶¨ Ï°∞Ìöå</a></li>
+      <li><a href="Î¨¥Ìòï.html">Í≤åÏãúÌåê</a></li>
+      <li><a href="ÏÉùÌôú.html">D</a></li>
+      <li><a href="feedback.html">E</a></li>
+      <%
+         if (username == null) {
+      %>
+      <div class="login">
+         <form method="post" action="LoginAction.jsp">
+            <input type="text" name="username"
+               style="width: 130px; height: 30px;"> <input type="passWord"
+               name="password" style="width: 130px; height: 30px;"> <input
+               type="submit" value="Î°úÍ∑∏Ïù∏ "> <a href='#'
+               onclick='javascript:window.open("signUp.jsp","name99", "width=720px,height=720px");'>ÌöåÏõêÍ∞ÄÏûÖ</a>
+         </form>
+      </div>
+      <%
+         } else {
+      %>
+      <div class="login">
+         <%
+            out.print((String) session.getAttribute("username") + " Îãò Ïñ¥ÏÑúÏò§ÏÑ∏Ïöî.");
+         %>
+         <a href='logoutAction.jsp'>Î°úÍ∑∏ÏïÑÏõÉ</a> <a href='myInfo.jsp'>| ÎÇòÏùò Ï†ïÎ≥¥</a>
+         </li>
+         </form>
+      </div>
+      <%
+         }
+      %>
+   </ul>
+   <br>
+   <br>
+   <br>
+   <br>
 
-	<br>
-	<br>
+   <br>
+   <br>
+   <div id="left_side">
+      <table class="type03">
+         <tr>
+            <td>ÎßàÏù¥ÌéòÏù¥ÏßÄ</td>
+         </tr>
+         <tr>
+            <td>ÌöåÏõêÏ†ïÎ≥¥</td>
+         </tr>
+      </table>
+      <div style="margin-top:30%;">
+         <table class="type03" style="font-size:16px;">
+         <%
+            String viewList[] = clubMember.ViewNews(username);
+            
+            if(viewList!=null){
+            for(int i=0; i<viewList.length; i++){%>
+               <tr>
+                  <td><h5 style="opacity: 0.6;"><%=viewList[i]%></h5></td>
+               </tr>
+               <%
+            }
+            }%> 
+         </table>
+      </div>
+      
+   </div>
 
-	<div id="left_side">
-		<table class="type03">
-			<tr>
-				<td>∏∂¿Ã∆‰¿Ã¡ˆ</td>
-			</tr>
-			<tr>
-				<td>»∏ø¯¡§∫∏</td>
-			</tr>
-		</table>
-	</div>
+   <div class="mainLeft">
+      <table class="type04">
+         <tr>
+            <td style="font-size: 30px;">Í∞ÄÏûÖ ÎèôÏïÑÎ¶¨</td>
+         </tr>
+         <%
+                  List<String> join = clubMember.get_MyApplyList(username,1);
+                  if (join!=null){
+                   for (int i = 0; i < join.size(); i++){ %>
+                        <tr>
+                        <form method="post" action="applyDeleteAction.jsp" onSubmit="return confirm('ÌÉàÌá¥ Ïã†Ï≤≠ÏùÑ ÌïòÏãúÍ≤†ÏäµÎãàÍπå?');">
+                          <td>
+                          <input type="text" name="clubNM" value=<%=join.get(i)%>>
+                           <input type="submit" value="ÌÉàÌá¥ Ïã†Ï≤≠">
+                           
+                        </form> 
+                       <%--  <form method="post" action="applyModAction.jsp">
+                          <input type="text" name="clubNM2" value=<%=join.get(i)%> style="display:none;">
+                          <input type="submit" value="Ï†úÏ∂ú Ï†ïÎ≥¥ ÏàòÏ†ïÌïòÍ∏∞.">
+                        </form> --%>
+                        </td>
+                        </tr>
+               <%}
+                  }
+         %>
 
-	<div class="mainLeft">
-		<table class="type04">
-			<tr>
-				<td style="font-size: 30px;">∞°¿‘ Ω≈√ª «ˆ»≤</td>
-			</tr>
-			<tr>
-				<td>«ˆ¿Á ~ µøæ∆∏Æø° ∞°¿‘Ω¬¿Œ¡ﬂ ¿‘¥œ¥Ÿ.
-					<button style="float: right;">√Îº“</button>
-				</td>
-			</tr>
-		</table>
-	</div>
+      </table>
+   </div>
 
-	<div class="mainRight">
-		<table class="type04">
-			<tr>
-				<td style="font-size: 30px;">∞°¿‘ µøæ∆∏Æ</td>
-			</tr>
-			<tr>
-				<td>«—∏≤ S.V.</td>
-			</tr>
-		</table>
-	</div>
+   <div class="mainRight">
+      <table class="type04">
+         <tr>
+            <td style="font-size: 30px;">Í∞ÄÏûÖ Ïã†Ï≤≠ Ï§ë ÎèôÏïÑÎ¶¨</td>
+         </tr>
+         <%
+               join = clubMember.get_MyApplyList(username,0);
+               if (join!=null){
+                   for (int i = 0; i < join.size(); i++){ %>
+                        <tr>
+                        <td>
+                        <form method="post" action="applyDeleteAction.jsp" onSubmit="return confirm('Í∞ÄÏûÖ Ïã†Ï≤≠ÏùÑ Ï∑®ÏÜåÌïòÏãúÍ≤†ÏäµÎãàÍπå?');">
+                            <input type="text" name="clubNM" value=<%=join.get(i)%>> ÎèôÏïÑÎ¶¨Ïóê Í∞ÄÏûÖÏäπÏù∏Ï§ë ÏûÖÎãàÎã§.
+                           <input type="submit" value="Í∞ÄÏûÖ Ïã†Ï≤≠ Ï∑®ÏÜå">
+                        </form>
+                        
+                        <form method="post" action="applyMod.jsp" target="w" onsubmit="return postPopUp();">
+                          <input type="text" name="clubNM2" value=<%=join.get(i)%> style="display:none;">
+                          <input type="submit"  value="Ï†úÏ∂ú Ï†ïÎ≥¥ ÏàòÏ†ïÌïòÍ∏∞.">
+                        </form>   
+                        
+                        <script>
+                        function postPopUp(){
+                              window.open('', 'w','width=900,height=650,location=no,status=no');
+                              return true;
+                        }
+                     </script>   
+                                             
+                         </td>   
+                      </tr>
+               <%}
+               }
+               %>
+      </table>
+   </div>
+
+
 </body>
 </html>

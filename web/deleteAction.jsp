@@ -61,6 +61,14 @@
 			BOARD_NO = Integer.parseInt(request.getParameter("BOARD_NO"));
 
 		}
+		
+String bbscd="";
+		
+		if (request.getParameter("BOARD_CD") != null) {
+
+			bbscd = request.getParameter("BOARD_CD");
+
+		}
 
 		if(BOARD_NO == 0) {
 
@@ -76,7 +84,7 @@
 
 		}
 
-		Bbs bbs = new BbsDAO().getBbs(BOARD_NO);
+		Bbs bbs = new BbsDAO().getBbs(BOARD_NO,bbscd);
 
 		if(!userID.equals(bbs.getINPUT_ID())) {
 

@@ -189,7 +189,11 @@ String bbscd="";
 
 						<tr>
 
-							<th colspan="2" style="background-color: #eeeeee; text-align: center; width:1500px;">글수정 </th>
+							<th colspan="2"
+
+								style="background-color: #eeeeee; text-align: center;">글
+
+								수정 </th>
 
 						</tr>
 
@@ -199,13 +203,13 @@ String bbscd="";
 
 						<tr>
 
-							<td style="width:100%;"><input type="text" class="form-control" placeholder="글 제목" name="TITLE" maxlength="50" value="<%= bbs.getTITLE()%>" ></td>
+							<td style="width:70%;"><input type="text" class="form-control" placeholder="글 제목" name="TITLE" maxlength="50" value="<%= bbs.getTITLE()%>" ></td>
 
 						</tr>
 
 						<tr>
 
-							<td><textarea class="form-control" placeholder="글 내용" name="CONTENTS" maxlength="2048" style="height: 350px; width:100%;" ><%= bbs.getCONTENTS() %></textarea></td>
+							<td><textarea class="form-control" placeholder="글 내용" name="CONTENTS" maxlength="2048" style="height: 350px;" ><%= bbs.getCONTENTS() %></textarea></td>
 
 						</tr>
 

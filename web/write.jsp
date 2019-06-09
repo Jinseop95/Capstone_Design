@@ -222,15 +222,14 @@ h2{margin-left:20%;}
                <tr>
                   <td>분류/제목</td>
                   <td class="td_2"><select name="board_cd">
-                        <option>안녕</option>
-                        <option>Free</option>
-                        <option>Plan</option>
-                        <option>Question</option>
+                        <option value="007001">공지사항</option>
+                        <option value="007002">자유게시판</option>
+                        <option value="007003">QnA</option>
                         
                   </select> <input type="text" name="TITLE" size="70"></td>
                </tr>
 
-               <!-- <tr>
+               <tr>
                   <td>동아리명</td>
                   <td class="td_2"><input type="text" name="BOARD_NO"
                      id="title" size="20"> <input class="button2"
@@ -239,7 +238,7 @@ h2{margin-left:20%;}
                <tr>
                   <td>파일 업로드</td>
                   <td class="td_2"><input type="file"></td>
-                  
+                  <!-- 
          <td class="td_2">
             
             <input type="text" id="fileName" class="file_input_textbox" readonly="readonly">
@@ -249,9 +248,8 @@ h2{margin-left:20%;}
                document.getElementById('fileName').value=this.value"/>
             </div>
          </td>
-        
-               </tr> -->
-               
+         -->
+               </tr>
                <tr>
                   <td>내용</td>
                   <td class="td_2"><textarea name="CONTENTS" id="bbsTitle"
@@ -278,13 +276,6 @@ h2{margin-left:20%;}
    </div>
 
 
-
-
-
-
-
-
-
    <!-- 애니매이션 담당 JQUERY -->
 
    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -298,5 +289,4 @@ h2{margin-left:20%;}
 </body>
 
 </html>
-
 

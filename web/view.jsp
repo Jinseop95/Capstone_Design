@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 
 <%@ page import="java.io.PrintWriter"%>
 
@@ -30,253 +30,253 @@
 
 <body>
 
-	<%
+   <%
 
-		//로긴한사람이라면	 userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
+      //로긴한사람이라면    userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
 
-		String userID = null;
+      String userID = null;
 
-		if (session.getAttribute("username") != null) {
+      if (session.getAttribute("username") != null) {
 
-			userID = (String) session.getAttribute("username");
+         userID = (String) session.getAttribute("username");
 
-	
+   
 
-		}
+      }
 
-		int bbsID = 0;
+      int bbsID = 0;
 
-		if (request.getParameter("BOARD_NO") != null) {
+      if (request.getParameter("BOARD_NO") != null) {
 
-			bbsID = Integer.parseInt(request.getParameter("BOARD_NO"));
+         bbsID = Integer.parseInt(request.getParameter("BOARD_NO"));
 
-		}
-		
-		
-		String bbscd="";
-		
-		if (request.getParameter("BOARD_CD") != null) {
+      }
+      
+      
+      String bbscd="";
+      
+      if (request.getParameter("BOARD_CD") != null) {
 
-			bbscd = request.getParameter("BOARD_CD");
+         bbscd = request.getParameter("BOARD_CD");
 
-		}
-		
-		
-		if (bbsID == 0) {
+      }
+      
+      
+      if (bbsID == 0) {
 
-			PrintWriter script = response.getWriter();
+         PrintWriter script = response.getWriter();
 
-			script.println("<script>");
+         script.println("<script>");
 
-			script.println("alert('유효하지 않은 글 입니다.')");
+         script.println("alert('유효하지 않은 글 입니다.')");
 
-			script.println("location.href = 'bbs.jsp'");
+         script.println("location.href = 'bbs.jsp'");
 
-			script.println("</script>");
+         script.println("</script>");
 
-		}
+      }
 
-		Bbs bbs = new BbsDAO().getBbs(bbsID,bbscd);
-		
-		
+      Bbs bbs = new BbsDAO().getBbs(bbsID,bbscd);
+      
+      
 
-	%>
+   %>
 
 
 
 
 
-	<!-- 네비게이션  -->
+   <!-- 네비게이션  -->
 
-	<nav class="navbar navbar-default">
+   <nav class="navbar navbar-default">
 
-		<div class="navbar-header">
+      <div class="navbar-header">
 
-			<button type="button" class="navbar-toggle collapsed"
+         <button type="button" class="navbar-toggle collapsed"
 
-				data-toggle="collapse" data-target="bs-example-navbar-collapse-1"
+            data-toggle="collapse" data-target="bs-example-navbar-collapse-1"
 
-				aria-expaned="false">
+            aria-expaned="false">
 
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+            <span class="icon-bar"></span> <span class="icon-bar"></span> <span
 
-					class="icon-bar"></span>
+               class="icon-bar"></span>
 
-			</button>
+         </button>
 
-			<a class="navbar-brand" href="main.jsp">JSP 게시판</a>
+         <a class="navbar-brand" href="main.jsp">JSP 게시판</a>
 
-		</div>
+      </div>
 
-		<div class="collapse navbar-collapse"
+      <div class="collapse navbar-collapse"
 
-			id="#bs-example-navbar-collapse-1">
+         id="#bs-example-navbar-collapse-1">
 
-			<ul class="nav navbar-nav">
+         <ul class="nav navbar-nav">
 
-				<li><a href="main.jsp">메인</a></li>
+            <li><a href="main.jsp">메인</a></li>
 
-				<li class="active"><a href="bbs.jsp">게시판</a></li>
+            <li class="active"><a href="bbs.jsp">게시판</a></li>
 
-			</ul>
+         </ul>
 
 
 
 
 
-			<%
+         <%
 
-				//라긴안된경우
+            //라긴안된경우
 
-				if (userID == null) {
+            if (userID == null) {
 
-			%>
+         %>
 
-			<ul class="nav navbar-nav navbar-right">
+         <ul class="nav navbar-nav navbar-right">
 
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+            <li class="dropdown"><a href="#" class="dropdown-toggle"
 
-					data-toggle="dropdown" role="button" aria-haspopup="true"
+               data-toggle="dropdown" role="button" aria-haspopup="true"
 
-					aria-expanded="false">접속하기<span class="caret"></span></a>
+               aria-expanded="false">접속하기<span class="caret"></span></a>
 
-					<ul class="dropdown-menu">
+               <ul class="dropdown-menu">
 
-						<li><a href="login.jsp">로그인</a></li>
+                  <li><a href="login.jsp">로그인</a></li>
 
-						<li><a href="join.jsp">회원가입</a></li>
+                  <li><a href="join.jsp">회원가입</a></li>
 
-					</ul></li>
+               </ul></li>
 
-			</ul>
+         </ul>
 
-			<%
+         <%
 
-				} else {
+            } else {
 
-			%>
+         %>
 
-			<ul class="nav navbar-nav navbar-right">
+         <ul class="nav navbar-nav navbar-right">
 
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+            <li class="dropdown"><a href="#" class="dropdown-toggle"
 
-					data-toggle="dropdown" role="button" aria-haspopup="true"
+               data-toggle="dropdown" role="button" aria-haspopup="true"
 
-					aria-expanded="false">회원관리<span class="caret"></span></a>
+               aria-expanded="false">회원관리<span class="caret"></span></a>
 
-					<ul class="dropdown-menu">
+               <ul class="dropdown-menu">
 
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
+                  <li><a href="logoutAction.jsp">로그아웃</a></li>
 
-					</ul></li>
+               </ul></li>
 
-			</ul>
+         </ul>
 
-			<%
+         <%
 
-				}
+            }
 
-			%>
+         %>
 
-		</div>
+      </div>
 
-	</nav>
+   </nav>
 
-	<!-- 게시판 -->
+   <!-- 게시판 -->
 
-	<div class="container">
+   <div class="container">
 
-		<div class="row">
+      <div class="row">
 
-				<table class="table table-striped"
+            <table class="table table-striped"
 
-					style="text-align: center; border: 1px solid #dddddd; marign:auto;">
+               style="text-align: center; border: 1px solid #dddddd; marign:auto;">
 
-					<thead>
+               <thead>
 
-						<tr>
+                  <tr>
 
-							<th colspan="3"
+                     <th colspan="3"
 
-								style="background-color: #eeeeee; text-align: center;">글 보기 </th>
+                        style="background-color: #eeeeee; text-align: center;">글 보기 </th>
 
-						</tr>
+                  </tr>
 
-					</thead>
+               </thead>
 
-					<tbody>
+               <tbody>
 
-						<tr>
+                  <tr>
 
-							<td style="width: 20%;"> 글 제목 </td>
+                     <td style="width: 20%;"> 글 제목 </td>
 
-							<td colspan="2"><%= bbs.getTITLE() %></td>
+                     <td colspan="2"><%= bbs.getTITLE() %></td>
 
-						</tr>
+                  </tr>
 
-						<tr>
+                  <tr>
 
-							<td>작성자</td>	
+                     <td>작성자</td>   
 
-							<td colspan="2"><%= bbs.getINPUT_ID() %></td>
+                     <td colspan="2"><%= bbs.getINPUT_ID() %></td>
 
-						</tr>
+                  </tr>
 
-						<tr>
+                  <tr>
 
-							<td>작성일</td>	
+                     <td>작성일</td>   
 
-							<td colspan="2"><%= bbs.getINPUT_DATE().substring(0, 11) + bbs.getINPUT_DATE().substring(11, 13) + "시"
+                     <td colspan="2"><%= bbs.getINPUT_DATE().substring(0, 11) + bbs.getINPUT_DATE().substring(11, 13) + "시"
 
-							+ bbs.getINPUT_DATE().substring(14, 16) + "분"%></td>
+                     + bbs.getINPUT_DATE().substring(14, 16) + "분"%></td>
 
-						</tr>
-						<tr>
-							<td>조회수</td>
-							<td colspan="2"><%= bbs.getOPEN_CNT() %></td>
-						</tr>
+                  </tr>
+                  <tr>
+                     <td>조회수</td>
+                     <td colspan="2"><%= bbs.getOPEN_CNT() %></td>
+                  </tr>
 
-						<tr>
+                  <tr>
 
-							<td>내용</td>	
+                     <td>내용</td>   
 
-							<td colspan="2" style="min-height: 200px; text-align: left;"><%= bbs.getCONTENTS() %></td>
+                     <td colspan="2" style="min-height: 200px; text-align: left;"><%= bbs.getCONTENTS() %></td>
 
-						</tr>
+                  </tr>
 
-						
+                  
 
-					</tbody>
+               </tbody>
 
-				</table>	
+            </table>   
 
-				<a href = "bbs.jsp" class="btn btn-primary">목록</a>
+            <a href = "bbs.jsp" class="btn btn-primary">목록</a>
 
-				
+            
 
-				
+            
 
-				<%
+            <%
 
-				//글작성자 본인일시 수정 삭제 가능 
+            //글작성자 본인일시 수정 삭제 가능 
 
-					if(userID != null && userID.equals(bbs.getINPUT_ID())){
+               if(userID != null && userID.equals(bbs.getINPUT_ID())){
 
-				%> 
+            %> 
 
-						<a href="update.jsp?BOARD_NO=<%= bbs.getBOARD_NO() %>" class="btn btn-primary">수정</a>
+                  <a href="update.jsp?BOARD_NO=<%= bbs.getBOARD_NO() %>" class="btn btn-primary">수정</a>
 
-						<a href="deleteAction.jsp?BOARD_NO=<%=bbs.getBOARD_NO()%>" class="btn btn-primary">삭제</a>
+                  <a href="deleteAction.jsp?BOARD_NO=<%=bbs.getBOARD_NO()%>" class="btn btn-primary">삭제</a>
 
-				<%					
+            <%               
 
-					}
+               }
 
-				%> 
+            %> 
 
-		</div>
+      </div>
 
-	</div>
+   </div>
 
 
 
@@ -286,17 +286,16 @@
 
 
 
-	<!-- 애니매이션 담당 JQUERY -->
+   <!-- 애니매이션 담당 JQUERY -->
 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-	<!-- 부트스트랩 JS  -->
+   <!-- 부트스트랩 JS  -->
 
-	<script src="js/bootstrap.js"></script>
+   <script src="js/bootstrap.js"></script>
 
 
 
 </body>
 
 </html>
-

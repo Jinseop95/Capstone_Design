@@ -49,6 +49,7 @@
 	font-weight: bold;
 	font-size: 15px;
 }
+
 </style>
 
 </head>
@@ -137,7 +138,7 @@
 								</span>
 							</a></li>
 							<li class="ico2"><a
-								onclick='javascript:window.open("signUp.jsp","name99", "width=720px,height=720px");'>
+								href="manage.jsp">
 									<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
 										src="img/hi2.png"></img> <em>동아리 추천</em></span> <strong class="tit"><span>동아리
 											추천</span></strong> <span>개인에게 맞는 동아리를 알아보세요</span>

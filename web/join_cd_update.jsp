@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
+   pageEncoding="UTF-8"%>
+   
 <%@ page import="clubMember.clubMemberDAO"%>
 <%@ page import="clubMember.clubMemberVo"%>
 
@@ -13,60 +13,72 @@
 <body>
 
 
-	<%request.setCharacterEncoding("UTF-8");%>
+   <%request.setCharacterEncoding("UTF-8");%>
 
-	<%
-	String submit_value = request.getParameter("submit");
-	String student_id = request.getParameter("student_id");
-	int join_club = Integer.parseInt(request.getParameter("join_club"));	
-	clubMemberDAO dao = new clubMemberDAO();
-	
-	if (submit_value.equals("승인")){
-		int result = dao.update(join_club, student_id);
-		if(result == -1){
-			out.println("<script>");
-			out.print("alert('다시 시도해주세요.');"); 
-			out.println("</script>");
-		}else{
-			out.println("<script>");
-			out.print("alert('승인 처리 되었습니다.');"); 
-			out.println("</script>");
-		}
-		
-	}else if(submit_value.equals("거부")){
-		int result = dao.delete(join_club, student_id);
-		if(result == -1){
-			out.println("<script>");
-			out.print("alert('다시 시도해주세요.');"); 
-			out.println("</script>");
-		}else{
-			out.println("<script>");
-			out.print("alert('승인 거부 하였습니다.');"); 
-			out.println("</script>");
-		}
-	}else if(submit_value.equals("제명")){
-		int result = dao.delete(join_club, student_id);
-		if(result == -1){
-			out.println("<script>");
-			out.print("alert('다시 시도해주세요.');"); 
-			out.println("</script>");
-		}else{
-			out.println("<script>");
-			out.print("alert('제명하였습니다.');"); 
-			out.println("</script>");
-		}
-	}else{
-		out.println("<script>");
-		out.print("alert('오류가 발생했습니다.');"); 
-		out.println("</script>");
-	}
+   <%
+   String submit_value = request.getParameter("submit");
+   String student_id = request.getParameter("student_id");
+   int join_club = Integer.parseInt(request.getParameter("join_club"));   
+   clubMemberDAO dao = new clubMemberDAO();
+   
+   if (submit_value.equals("승인")){
+      int result = dao.update(join_club, student_id);
+      if(result == -1){
+         out.println("<script>");
+         out.print("alert('다시 시도해주세요.');"); 
+         out.println("</script>");
+      }else{
+         out.println("<script>");
+         out.print("alert('승인 처리 되었습니다.');"); 
+         out.println("</script>");
+      }
+      
+   }else if(submit_value.equals("거부")){
+      int result = dao.delete(join_club, student_id);
+      if(result == -1){
+         out.println("<script>");
+         out.print("alert('다시 시도해주세요.');"); 
+         out.println("</script>");
+      }else{
+         out.println("<script>");
+         out.print("alert('승인 거부 하였습니다.');"); 
+         out.println("</script>");
+      }
+   
+      int writeResult = dao.writeNews(student_id, dao.getClubNMs(join_club)+"에 가입이 거절되었습니다.");
+      if(writeResult == -1){
+         out.println("<script>");
+         out.print("alert('다시 시도해주세요.');"); 
+         out.println("</script>");
+      }else{
+         out.println("<script>");
+         out.print("alert('승인 거부 하였습니다.');"); 
+         out.println("</script>");
+      }
+      
+   }else if(submit_value.equals("제명")){
+      int result = dao.delete(join_club, student_id);
+      if(result == -1){
+         out.println("<script>");
+         out.print("alert('다시 시도해주세요.');"); 
+         out.println("</script>");
+      }else{
+         out.println("<script>");
+         out.print("alert('제명하였습니다.');"); 
+         out.println("</script>");
+      }
+   }else{
+      out.println("<script>");
+      out.print("alert('오류가 발생했습니다.');"); 
+      out.println("</script>");
+   }
 
 
-	%>
-	
-	<script>
-		location.href="manage.jsp";
-	</script>
+   %>
+   
+   <script>
+      location.href="manage.jsp";
+   </script>
 
 </body>
 </html>

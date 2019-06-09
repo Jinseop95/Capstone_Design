@@ -1,3 +1,4 @@
+<%@page import="com.javaking.excel.CustomerExcelWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.net.URLEncoder"%>
@@ -9,6 +10,8 @@
 <%@page import="clubMember.clubMemberDAO"%>
 <%@page import="clubMember.clubMemberVo"%>
 <%@ page import="java.io.PrintWriter"%>
+<%@ page import="com.javaking.excel.CustomerExcelWriter" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -273,8 +276,17 @@ a:hover {
 		<jsp:useBean id="dao" class="exam.jdbc.JDBC_clubDAO" />
 
 		<%
+			
 			ArrayList<ClubVO> manage_list = dao.getManageClub(username);
-
+			if (manage_list.isEmpty()){
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('권한이 없습니다.')");
+				script.println("location.href = 'club_search.jsp'");
+				script.println("</script>");
+			}
+				
+			else{
 			int club_id = manage_list.get(0).getClub_id();
 
 			if (request.getParameter("club_id") != null) {
@@ -347,6 +359,7 @@ a:hover {
 				<td><%=cvo.getJoin_dt()%></td>
 				<input type="hidden" name="student_id" value=<%=cvo.getSTUDENT_ID() %>>
 				<input type="hidden" name="join_club" value=<%=club_id %>>
+				
 				<td><button value=<%=cvo.getSTUDENT_ID()%> name="update" onclick="popup(this.form);">수정</button>
 					<input type="submit" value="제명" name="submit" style="cursor:pointer">
 				</form>
@@ -357,7 +370,7 @@ a:hover {
 
 		</table>
 		<p>
-			<button id="export">Excel다운</button>
+			<button id="export" onclick="data_export();">Excel다운</button>
 		</p>
 		<div id="page_out" style="text-align: center; margin-top: 30px;">
 			<%
@@ -443,6 +456,7 @@ a:hover {
 		</form>
 
 	</div>
+	
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -464,9 +478,26 @@ a:hover {
 		  frm.method = "post";
 		  frm.submit();     
 		  }
+		function data_export(){
+			
+			
+			<%
+			
+			clubMemberDAO dao2 = new clubMemberDAO();
+			ArrayList<clubMemberVo> excel_list = dao2.getMember(club_id, 1, category, search);
+			
+			//ArrayList<clubMemberVo> excel_list = member_dao.getMember(club_id, 1, category, search);
+			
+			CustomerExcelWriter excelWriter = new CustomerExcelWriter();
+			excelWriter.xlsWiter(excel_list);%>
+			alert('다운로드 폴더에 저장되었습니다.');
+
+		}
 
 	</script>
+	
 
+<% }%>
 
 </body>
 </html>
