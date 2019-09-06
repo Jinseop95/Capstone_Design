@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import clubMember.clubMemberVo;
-import exam.jdbc.ClubVO;
  
 public class JDBC_clubDAO {
  
@@ -60,38 +59,38 @@ public class JDBC_clubDAO {
             if (st != null ) st.close();
        
         } catch (SQLException e) {
-            System.out.println(e+"=> error");
+            System.out.println(e+"=> 데이터베이스오류");
         }      
        
     } //db_close
     
     public ArrayList<ClubVO> getClublist (String gb_cd, String search, String at_cd, int pageNumber){
-       
-       ArrayList<ClubVO> list = new ArrayList<ClubVO>();
-       String SQL = "";
-       //Connection conn = null;
-       PreparedStatement pstmt = null;
-       ResultSet rs = null;
-       
-       int row_count =0;
-       try{
-          SQL = "SELECT SQL_CALC_FOUND_ROWS * FROM CLUB WHERE CLUB_GB_CD LIKE ? AND CLUB_NM LIKE ?"
-                + " AND CLUB_AT_CD LIKE ? ORDER BY CLUB_NM ASC LIMIT " + (pageNumber-1) * 4 +"," +4;
-          
-//          SELECT  * FROM CLUB WHERE CLUB_GB_CD LIKE '%0%' AND CLUB_NM LIKE '%' 
-//          AND CLUB_AT_CD LIKE '0%' ORDER BY CLUB_NM ASC LIMIT 0,4;
-          
-          pstmt = con.prepareStatement(SQL);
-          pstmt.setString(1,"%"+gb_cd+ "%");
-          pstmt.setString(2,"%"+search+ "%");
-          pstmt.setString(3,"%"+at_cd+ "%");
-          
-          rs=pstmt.executeQuery();
-          
-          while(rs.next()){
-             ClubVO vo = new ClubVO();
-             row_count++;
-             
+    	
+    	ArrayList<ClubVO> list = new ArrayList<ClubVO>();
+    	String SQL = "";
+    	//Connection conn = null;
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	
+    	int row_count =0;
+    	try{
+    		SQL = "SELECT SQL_CALC_FOUND_ROWS * FROM CLUB WHERE CLUB_GB_CD LIKE ? AND CLUB_NM LIKE ?"
+    				+ " AND CLUB_AT_CD LIKE ? ORDER BY CLUB_NM ASC LIMIT " + (pageNumber-1) * 4 +"," +4;
+    		
+//    		SELECT  * FROM CLUB WHERE CLUB_GB_CD LIKE '%0%' AND CLUB_NM LIKE '%' 
+//    		AND CLUB_AT_CD LIKE '0%' ORDER BY CLUB_NM ASC LIMIT 0,4;
+    		
+    		pstmt = con.prepareStatement(SQL);
+    		pstmt.setString(1,"%"+gb_cd+ "%");
+    		pstmt.setString(2,"%"+search+ "%");
+    		pstmt.setString(3,"%"+at_cd+ "%");
+    		
+    		rs=pstmt.executeQuery();
+    		
+    		while(rs.next()){
+    			ClubVO vo = new ClubVO();
+    			row_count++;
+    			
                 vo.setClub_id(rs.getInt(1));
                 vo.setClub_nm(rs.getString(2));
                 vo.setClub_gb_cd(rs.getString(3));
@@ -108,81 +107,113 @@ public class JDBC_clubDAO {
                 vo.setInput_date(rs.getString(16));
                 vo.setRow_count(row_count);
                 list.add(vo);
-          }
-          
-          Statement st2 = con.createStatement();
-          ResultSet rs2 = st2.executeQuery("SELECT FOUND_ROWS()");
-   
-          while(rs2.next()){
-             ClubVO vo = new ClubVO();
-             row_count = rs2.getInt(1);
-             list.get(0).setRow_count(row_count);
-          }
-          }catch(Exception e){
-             
-          }finally{          
-               db_close();
-           } 
-       return list;
+    		}
+    		
+    		Statement st2 = con.createStatement();
+    		ResultSet rs2 = st2.executeQuery("SELECT FOUND_ROWS()");
+	
+    		while(rs2.next()){
+    			ClubVO vo = new ClubVO();
+    			row_count = rs2.getInt(1);
+    			list.get(0).setRow_count(row_count);
+    		}
+    		}catch(Exception e){
+    			
+    		}finally{          
+	            db_close();
+	        } 
+    	return list;
     } 
     
     
     public String getProfessor (int club_id){
-       
-       String SQL = "";
-       //Connection conn = null;
-       PreparedStatement pstmt = null;
-       ResultSet rs = null;
-       String prof_name = "";
-       try{
-             SQL = "SELECT * FROM CLUB_PROF WHERE CLUB_ID = ? AND PROG_GB_CD = '006001'";
-             
-          pstmt = con.prepareStatement(SQL);
-          pstmt.setInt(1,club_id);
-          
-          rs=pstmt.executeQuery();
-          
-          
-          while(rs.next()){
-             
-             prof_name= rs.getString(3);
-          }
-          }catch(Exception e){
-          }finally{          
-               db_close();
-           } 
-       return prof_name;
-       
+    	
+    	String SQL = "";
+    	//Connection conn = null;
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	String prof_name = "";
+    	try{
+    			SQL = "SELECT * FROM CLUB_PROF WHERE CLUB_ID = ? AND PROG_GB_CD = '006001'";
+    			
+    		pstmt = con.prepareStatement(SQL);
+    		pstmt.setInt(1,club_id);
+    		
+    		rs=pstmt.executeQuery();
+    		
+    		
+    		while(rs.next()){
+    			
+    			prof_name= rs.getString(3);
+    		}
+    		}catch(Exception e){
+    		}finally{          
+	            db_close();
+	        } 
+    	return prof_name;
+    	
     }
     
     public ArrayList<ClubVO> getManageClub(String student_id){
+    	
+    	ArrayList<ClubVO> clubList = null;
+    	String SQL = "";
+    	//Connection conn = null;
+    	PreparedStatement pstmt = null;
+    	ResultSet rs = null;
+    	
+    	
+    	try{
+    		if (student_id .equals("admin")){
+    			SQL = "SELECT * FROM CLUB";
+    			pstmt = con.prepareStatement(SQL);
+        		
+        		rs=pstmt.executeQuery();
+        		
+        		clubList = new ArrayList<ClubVO>();
+    		}else{
+    			SQL = "SELECT * FROM CLUB WHERE CLUB_ID = ANY(SELECT CLUB_ID FROM CLUB_MEMBER WHERE STAFF_CD LIKE '004%' AND STUDENT_ID = ?)"; 
+        		
+        		pstmt = con.prepareStatement(SQL);
+        		pstmt.setString(1,student_id);
+        		
+        		rs=pstmt.executeQuery();
+        		
+        		clubList = new ArrayList<ClubVO>();
+    		}
+    		
+    		
+    		while(rs.next()){
+    			ClubVO vo = new ClubVO();
+    			vo.setClub_id(rs.getInt(1));
+    			vo.setClub_nm(rs.getString(2));
+    			clubList.add(vo);
+    		}
+    		
+    		}catch(Exception e){
+    			System.out.println("database fail");
+    		}finally{          
+	            db_close();
+	        } 
+    	return clubList;
+    }
+    
+    
+    public ArrayList<ClubVO> getboardwriteClub(String student_id){
         
         ArrayList<ClubVO> clubList = null;
         String SQL = "";
-        //Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        
-        
         try{
-           if (student_id .equals("admin")){
-              SQL = "SELECT * FROM CLUB";
-              pstmt = con.prepareStatement(SQL);
-               
-               rs=pstmt.executeQuery();
-               
-               clubList = new ArrayList<ClubVO>();
-           }else{
-              SQL = "SELECT * FROM CLUB WHERE CLUB_ID = ANY(SELECT CLUB_ID FROM CLUB_MEMBER WHERE STAFF_CD LIKE '004%' AND STUDENT_ID = ?)"; 
-               
-               pstmt = con.prepareStatement(SQL);
-               pstmt.setString(1,student_id);
-               
-               rs=pstmt.executeQuery();
-               
-               clubList = new ArrayList<ClubVO>();
-           }
+           SQL = "SELECT * FROM CLUB WHERE CLUB_ID = ANY(SELECT CLUB_ID FROM CLUB_MEMBER WHERE STUDENT_ID = ? AND JOIN_CD = 008001)";
            
+           pstmt = con.prepareStatement(SQL);
+           pstmt.setString(1,student_id);
+           
+           rs=pstmt.executeQuery();
+           
+           clubList = new ArrayList<ClubVO>();
            
            while(rs.next()){
               ClubVO vo = new ClubVO();
@@ -200,93 +231,11 @@ public class JDBC_clubDAO {
      }
     
     
-   /*
-    * public int clubwrite(int club_id,String club_nm, String club_gb_cd, String
-    * club_at_cd, int cnt, String club_aim, String club_active, String club_room,
-    * String open_dt, String intro_file_nm) {
-    * 
-    * String SQL =
-    * "INSERT INTO club (CLUB_ID, club_nm ,club_gb_cd ,club_at_cd ,club_cnt ,club_aim ,club_active ,club_room, open_dt, intro_file_nm)"
-    * + "VALUES (?,?,?,?,?,?,?,?,?,?)";
-    * 
-    * try {
-    * 
-    * PreparedStatement pstmt = con.prepareStatement(SQL);
-    * 
-    * pstmt.setInt(1, club_id);
-    * 
-    * pstmt.setString(2, club_nm);
-    * 
-    * pstmt.setString(3, club_gb_cd);
-    * 
-    * pstmt.setString(4, club_at_cd);
-    * 
-    * pstmt.setInt(5, cnt);
-    * 
-    * pstmt.setString(6, club_aim);
-    * 
-    * pstmt.setString(7, club_active);
-    * 
-    * pstmt.setString(8, club_room);
-    * 
-    * pstmt.setString(9, open_dt);
-    * 
-    * pstmt.setString(10,intro_file_nm);
-    * 
-    * return pstmt.executeUpdate();
-    * 
-    * } catch (Exception e) {
-    * 
-    * e.printStackTrace();
-    * 
-    * }
-    * 
-    * return -1;
-    * 
-    * }
-    */
-    
-    
-    
-    
-public ArrayList<ClubVO> getboardwriteClub(String student_id){
-       
-       ArrayList<ClubVO> clubList = null;
-       String SQL = "";
-       PreparedStatement pstmt = null;
-       ResultSet rs = null;
-       try{
-          SQL = "SELECT * FROM CLUB WHERE CLUB_ID = ANY(SELECT CLUB_ID FROM CLUB_MEMBER WHERE STUDENT_ID = ? AND JOIN_CD = 008001)";
-          
-          pstmt = con.prepareStatement(SQL);
-          pstmt.setString(1,student_id);
-          
-          rs=pstmt.executeQuery();
-          
-          clubList = new ArrayList<ClubVO>();
-          
-          while(rs.next()){
-             ClubVO vo = new ClubVO();
-             vo.setClub_id(rs.getInt(1));
-             vo.setClub_nm(rs.getString(2));
-             clubList.add(vo);
-          }
-          
-          }catch(Exception e){
-             System.out.println("database fail");
-          }finally{          
-               db_close();
-           } 
-       return clubList;
-    }
-    
-    
-    
     public int addsub_prefer(int club_id,String state) {
         String SQL="";
         
         if(state.equals("0")) {
-           SQL = "UPDATE club SET prefer=prefer+1 where club_id="+club_id;
+        	SQL = "UPDATE club SET prefer=prefer+1 where club_id="+club_id;
         }
             
         else 
@@ -305,136 +254,136 @@ public ArrayList<ClubVO> getboardwriteClub(String student_id){
             db_close();
         } 
         
-        return -1;
+        return -1;//오류
      }
      
      
     public String[] recommend_dong(String AT_CD) {
-       
-       String[] recommend = new String[3];
-       String SQL = "select club_nm from club where CLUB_AT_CD="+AT_CD+" order by prefer desc limit 3;";
-       ResultSet rs = null;
-       int i=0;
-       try {
-          PreparedStatement pstmt = (PreparedStatement) con.prepareStatement(SQL);
-          rs = pstmt.executeQuery();
-          
-          while(rs.next()){
-             recommend[i] = rs.getString(1);
-             i++;
-          }
-          
-          if(i!=3)
-             return null;
-          
-          return recommend;
-       } catch (Exception e) {
-          e.printStackTrace();
-       }
-       
-       return null;
+    	
+    	String[] recommend = new String[3];
+    	String SQL = "select club_nm from club where CLUB_AT_CD="+AT_CD+" order by prefer desc limit 3;";
+    	ResultSet rs = null;
+    	int i=0;
+    	try {
+    		PreparedStatement pstmt = (PreparedStatement) con.prepareStatement(SQL);
+    		rs = pstmt.executeQuery();
+    		
+    		while(rs.next()){
+    			recommend[i] = rs.getString(1);
+    			i++;
+    		}
+    		
+    		if(i!=3)
+    			return null;
+    		
+    		return recommend;
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return null;//오류
   }
     
     public int createClub(ClubVO CV) {
 
-        String SQL =  "INSERT INTO club(CLUB_ID, CLUB_NM, CLUB_GB_CD, CLUB_AT_CD, CLUB_CNT, CLUB_AIM, CLUB_ACTIVE, CLUB_ROOM, "
-             + "OPEN_DT, INTRO_FILE_NM, INTRO_FILE_PATH, PREFER) VALUES(?,?,?,?,0,?,?,?,?,?,?,0)";
-       
+    	String SQL =  "INSERT INTO club(CLUB_ID, CLUB_NM, CLUB_GB_CD, CLUB_AT_CD, CLUB_CNT, CLUB_AIM, CLUB_ACTIVE, CLUB_ROOM, "
+				+ "OPEN_DT, INTRO_FILE_NM, INTRO_FILE_PATH, PREFER) VALUES(?,?,?,?,0,?,?,?,?,?,?,0)";
+		
 
-          
-       try {
-          
-          if(CV.getClub_aim() == null ){
-             CV.setClub_aim("");   
-          }
-          if(CV.getClub_active() == null ){
-             CV.setClub_active("");   
-          }
-          if(CV.getClub_room() == null ){
-             CV.setClub_room("");   
-          }
-          if(CV.getOpen_dt() == null ){
-             CV.setOpen_dt("");   
-          }
-          if(CV.getIntro_file_nm() == null ){
-             CV.setIntro_file_nm("");   
-          }
-          if(CV.getIntro_file_path() == null ){
-             CV.setIntro_file_path("");   
-          }
-          
-          
-          PreparedStatement pstmt = (PreparedStatement) con.prepareStatement(SQL);
-          
-          pstmt = con.prepareStatement(SQL);
-          
-          pstmt.setInt(1, 0);
-          pstmt.setString(2, CV.getClub_nm());
-          pstmt.setString(3, CV.getClub_gb_cd());
-          pstmt.setString(4, CV.getClub_at_cd());
-          pstmt.setString(5, CV.getClub_aim());
-          pstmt.setString(6, CV.getClub_active());
-          pstmt.setString(7, CV.getClub_room());
-          pstmt.setString(8, CV.getOpen_dt());
-          pstmt.setString(9, CV.getIntro_file_nm());
-          pstmt.setString(10, CV.getIntro_file_path());
+      	
+		try {
+			
+			if(CV.getClub_aim() == null ){
+				CV.setClub_aim("");	
+			}
+			if(CV.getClub_active() == null ){
+				CV.setClub_active("");	
+			}
+			if(CV.getClub_room() == null ){
+				CV.setClub_room("");	
+			}
+			if(CV.getOpen_dt() == null ){
+				CV.setOpen_dt("");	
+			}
+			if(CV.getIntro_file_nm() == null ){
+				CV.setIntro_file_nm("");	
+			}
+			if(CV.getIntro_file_path() == null ){
+				CV.setIntro_file_path("");	
+			}
+			
+			
+			PreparedStatement pstmt = (PreparedStatement) con.prepareStatement(SQL);
+			
+			pstmt = con.prepareStatement(SQL);
+			
+			pstmt.setInt(1, 0);
+			pstmt.setString(2, CV.getClub_nm());
+			pstmt.setString(3, CV.getClub_gb_cd());
+			pstmt.setString(4, CV.getClub_at_cd());
+			pstmt.setString(5, CV.getClub_aim());
+			pstmt.setString(6, CV.getClub_active());
+			pstmt.setString(7, CV.getClub_room());
+			pstmt.setString(8, CV.getOpen_dt());
+			pstmt.setString(9, CV.getIntro_file_nm());
+			pstmt.setString(10, CV.getIntro_file_path());
 
-          return pstmt.executeUpdate();
-          
-       } catch (Exception e) {
-          e.printStackTrace();
-       } finally {
-          db_close();
-       }
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db_close();
+		}
 
-       return -1; // 데이터베이스 오류
+		return -1; // 데이터베이스 오류
 
-    }
+	}
     
     public String getIntro_FilePath(String clubNM) {
-       String SQL= "select INTRO_FILE_PATH from club where CLUB_NM='"+clubNM+"'";
-       PreparedStatement pstmt;
-       String Intro_FilePath="";
-       
-      try {
-         pstmt = (PreparedStatement) con.prepareStatement(SQL);
-         rs = pstmt.executeQuery();
-         
-         while(rs.next()) {
-            Intro_FilePath = rs.getString(1);
-            return Intro_FilePath;
-         }
-         
-      } catch (SQLException e) {
-         // TODO Auto-generated catch block
-         e.printStackTrace();
-      }
-      return null;
+    	String SQL= "select INTRO_FILE_PATH from club where CLUB_NM='"+clubNM+"'";
+    	PreparedStatement pstmt;
+    	String Intro_FilePath="";
+    	
+		try {
+			pstmt = (PreparedStatement) con.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Intro_FilePath = rs.getString(1);
+				return Intro_FilePath;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
     }
     
     public ArrayList<String[]> getItems(int club_id) {
-       String sql="SELECT ITEM_NM,ITEM_CONT,TOT_CNT from item where CLUB_ID="+club_id+" ORDER BY ITEM_NM";
-       ArrayList<String[]> allClubItem = new ArrayList<>();
-       
-      try {
-         PreparedStatement pstmt = (PreparedStatement) con.prepareStatement(sql);
-         ResultSet rs = pstmt.executeQuery();
-         
-         while(rs.next()) {
-             String clubItem[] = new String[3];            
-             clubItem[0]=rs.getString(1); 
-            clubItem[1]=rs.getString(2); 
-            clubItem[2]=rs.getString(3); 
-            allClubItem.add(clubItem);
-         }
-         return allClubItem;
-         
-      } catch (SQLException e) {
-         e.printStackTrace();
-      }
-      
-      return null;
-       
+    	String sql="SELECT ITEM_NM,ITEM_CONT,TOT_CNT from item where CLUB_ID="+club_id+" ORDER BY ITEM_NM";
+    	ArrayList<String[]> allClubItem = new ArrayList<>();
+    	
+		try {
+			PreparedStatement pstmt = (PreparedStatement) con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+		    	String clubItem[] = new String[3];				
+		    	clubItem[0]=rs.getString(1); //물품 명
+				clubItem[1]=rs.getString(2); //물품 설명
+				clubItem[2]=rs.getString(3); //개 수
+				allClubItem.add(clubItem);
+			}
+			return allClubItem;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+    	
     }
 
 }
